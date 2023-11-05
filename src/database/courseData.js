@@ -5,8 +5,9 @@ const courseData = [
     instructor: "John Doe",
     description:
       "Learn the basics of React Native development and build your first mobile app.",
-    enrollmentStatus: "Open",
-    thumbnail: "your.image.here",
+    enrollmentStatus: "In Progress",
+    thumbnail:
+      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=60&w=400&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bW9iaWxlJTIwYXBwc3xlbnwwfHwwfHx8MA%3D%3D",
     duration: "8 weeks",
     schedule: "Tuesdays and Thursdays, 6:00 PM - 8:00 PM",
     location: "Online",
@@ -45,7 +46,8 @@ const courseData = [
     description:
       "Master web development using React and create dynamic websites.",
     enrollmentStatus: "Open",
-    thumbnail: "your.image2.here",
+    thumbnail:
+      "https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?auto=format&fit=crop&q=60&w=400&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVhY3R8ZW58MHx8MHx8fDA%3D",
     duration: "10 weeks",
     schedule: "Mondays and Wednesdays, 7:00 PM - 9:00 PM",
     location: "Online",
@@ -81,8 +83,9 @@ const courseData = [
     instructor: "Sarah Miller",
     description:
       "Dive deep into Python programming with advanced concepts and real-world projects.",
-    enrollmentStatus: "Open",
-    thumbnail: "your.image3.here",
+    enrollmentStatus: "Closed",
+    thumbnail:
+      "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&q=60&w=400&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHl0aG9ufGVufDB8fDB8fHww",
     duration: "12 weeks",
     schedule: "Mondays and Wednesdays, 6:30 PM - 8:30 PM",
     location: "Virtual Classroom",
@@ -119,8 +122,9 @@ const courseData = [
     instructor: "Maria Rodriguez",
     description:
       "Learn the fundamentals of data science, including data analysis and machine learning.",
-    enrollmentStatus: "Open",
-    thumbnail: "your.image4.here",
+    enrollmentStatus: "In Progress",
+    thumbnail:
+      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=60&w=400&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8ZGF0YSUyMHNjaWVuY2V8ZW58MHx8MHx8fDA%3D",
     duration: "10 weeks",
     schedule: "Tuesdays and Thursdays, 7:00 PM - 9:00 PM",
     location: "Online",
@@ -158,7 +162,8 @@ const courseData = [
     description:
       "Master the art of digital marketing and create effective online marketing campaigns.",
     enrollmentStatus: "Open",
-    thumbnail: "your.image5.here",
+    thumbnail:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=60&w=400&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dGVjaG5pY2FsfGVufDB8fDB8fHww",
     duration: "8 weeks",
     schedule: "Mondays and Wednesdays, 6:30 PM - 8:30 PM",
     location: "Virtual Classroom",
@@ -195,8 +200,9 @@ const courseData = [
     instructor: "Laura Evans",
     description:
       "Explore the world of machine learning using Python and work on real-world projects.",
-    enrollmentStatus: "Open",
-    thumbnail: "your.image6.here",
+    enrollmentStatus: "Closed",
+    thumbnail:
+      "https://images.unsplash.com/photo-1501526029524-a8ea952b15be?auto=format&fit=crop&q=60&w=400&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fG1hY2hpbmUlMjBsZWFybmluZ3xlbnwwfHwwfHx8MA%3D%3D",
     duration: "12 weeks",
     schedule: "Tuesdays and Thursdays, 7:00 PM - 9:00 PM",
     location: "Online",
@@ -238,7 +244,8 @@ const courseData = [
     description:
       "Learn the basics of graphic design, including design principles and digital tools.",
     enrollmentStatus: "Open",
-    thumbnail: "your.image7.here",
+    thumbnail:
+      "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=60&w=400&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z3JhcGhpYyUyMGRlc2lnbnxlbnwwfHwwfHx8MA%3D%3D",
     duration: "8 weeks",
     schedule: "Mondays and Wednesdays, 6:30 PM - 8:30 PM",
     location: "Virtual Classroom",
@@ -275,8 +282,9 @@ const courseData = [
     instructor: "Emma Baker",
     description:
       "Master the art of photography, from camera basics to composition and editing.",
-    enrollmentStatus: "Open",
-    thumbnail: "your.image8.here",
+    enrollmentStatus: "Closed",
+    thumbnail:
+      "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&q=60&w=400&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGhvdG9ncmFwaHl8ZW58MHx8MHx8fDA%3D",
     duration: "10 weeks",
     schedule: "Tuesdays and Thursdays, 6:00 PM - 8:00 PM",
     location: "On-location and virtual sessions",
@@ -313,7 +321,8 @@ const courseData = [
     description:
       "Learn to prepare delicious and nutritious meals for a healthy lifestyle.",
     enrollmentStatus: "Open",
-    thumbnail: "your.image9.here",
+    thumbnail:
+      "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&q=60&w=400&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aGVhbHRoeSUyMGZvb2R8ZW58MHx8MHx8fDA%3D",
     duration: "6 weeks",
     schedule: "Mondays and Wednesdays, 5:30 PM - 7:30 PM",
     location: "Cooking School",
@@ -350,7 +359,8 @@ const courseData = [
     description:
       "Immerse yourself in the Spanish language and culture through interactive lessons and activities.",
     enrollmentStatus: "Open",
-    thumbnail: "your.image10.here",
+    thumbnail:
+      "https://images.unsplash.com/photo-1489945052260-4f21c52268b9?auto=format&fit=crop&q=60&w=400&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3BhbmlzaHxlbnwwfHwwfHx8MA%3D%3D",
     duration: "8 weeks",
     schedule: "Mondays and Wednesdays, 6:30 PM - 8:30 PM",
     location: "Virtual Classroom",
@@ -377,6 +387,85 @@ const courseData = [
         id: 1002,
         name: "Mason Clark",
         email: "mason@example.com",
+      },
+    ],
+  },
+  {
+    id: 11,
+    name: "Effective Communication Skills",
+    instructor: "Emily Johnson",
+    description:
+      "Develop essential communication skills for personal and professional success.",
+    enrollmentStatus: "Closed",
+    thumbnail:
+      "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=60&w=400&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c29mdCUyMHNraWxsc3xlbnwwfHwwfHx8MA%3D%3D",
+    duration: "6 weeks",
+    schedule: "Tuesdays and Thursdays, 6:30 PM - 8:30 PM",
+    location: "Online",
+    prerequisites: ["No specific prerequisites"],
+    syllabus: [
+      {
+        week: 1,
+        topic: "Introduction to Effective Communication",
+        content:
+          "Understanding the importance of effective communication in various contexts.",
+      },
+      {
+        week: 2,
+        topic: "Active Listening and Empathy",
+        content:
+          "Improving listening skills and developing empathy in communication.",
+      },
+    ],
+    students: [
+      {
+        id: 1101,
+        name: "James Smith",
+        email: "james@example.com",
+      },
+      {
+        id: 1102,
+        name: "Sophia Davis",
+        email: "sophia@example.com",
+      },
+    ],
+  },
+  {
+    id: 12,
+    name: "Guitar Playing for Beginners",
+    instructor: "Alex Turner",
+    description:
+      "Learn to play the guitar from scratch, covering basic chords, strumming, and popular songs.",
+    enrollmentStatus: "In Progress",
+    thumbnail:
+      "https://images.unsplash.com/photo-1605020420620-20c943cc4669?auto=format&fit=crop&q=60&w=400&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGd1aXRhcnxlbnwwfHwwfHx8MA%3D%3D",
+    duration: "10 weeks",
+    schedule: "Mondays and Wednesdays, 7:00 PM - 8:30 PM",
+    location: "Local Music School",
+    prerequisites: ["No prior guitar playing experience required"],
+    syllabus: [
+      {
+        week: 1,
+        topic: "Introduction to the Guitar",
+        content:
+          "Understanding the guitar, tuning, and basic playing techniques.",
+      },
+      {
+        week: 2,
+        topic: "Basic Chords and Strumming",
+        content: "Learning fundamental chords and strumming patterns.",
+      },
+    ],
+    students: [
+      {
+        id: 1201,
+        name: "Sophia Martin",
+        email: "sophia@example.com",
+      },
+      {
+        id: 1202,
+        name: "Ethan Wilson",
+        email: "ethan@example.com",
       },
     ],
   },

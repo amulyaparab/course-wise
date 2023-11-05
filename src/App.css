@@ -1,9 +1,97 @@
-.App-header {
+.App {
+  text-align: center;
+}
+
+.navbar {
   background-color: #282c34;
   color: white;
   padding: 5px;
   font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
 }
-.App-header h1 {
-  padding-left: 2rem;
+
+.navbar h1 {
+  cursor: pointer;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  width: 150px;
+}
+
+.navbar li a {
+  text-decoration: none;
+  color: white;
+}
+
+.all-courses {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  justify-content: space-evenly;
+  padding: 1rem;
+}
+
+.single-course {
+  width: 300px;
+  height: 250px;
+  cursor: pointer;
+  border-radius: 7px;
+  text-align: left;
+  background-color: #6a87c223;
+}
+
+.single-course .course-thumbnail img {
+  height: 150px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 7px 7px 0 0;
+  margin-bottom: 4px;
+}
+
+.single-course .course-thumbnail {
+  position: relative;
+}
+
+.single-course .details {
+  padding-left: 1rem;
+}
+.single-course .details h3 {
+  margin-top: 9px;
+  margin-bottom: -9px;
+  font-size: 18px;
+}
+.single-course .details p {
+  font-size: 14px;
+}
+.single-course small {
+  background-color: #ffffff;
+  padding: 0.1rem 0.5rem;
+  border-radius: 5px;
+  font-size: 12px;
+}
+.course-thumbnail span {
+  position: absolute;
+  bottom: 15px;
+  right: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: small;
+  background-color: #282c34;
+  padding: 0.1rem 1rem;
+  border-radius: 5px;
+}
+.enrolled-tag {
+  background-color: rgb(241, 199, 83);
+  position: absolute;
+  padding: 0.3rem 0.7rem;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 5px 0;
 }
