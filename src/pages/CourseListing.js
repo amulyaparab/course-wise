@@ -5,7 +5,7 @@ const CourseListing = () => {
   const navigate = useNavigate();
   return (
     <>
-      <h1>Courses</h1>
+      <h1>All Courses</h1>
       <div className="all-courses">
         {courseData.map(
           ({
