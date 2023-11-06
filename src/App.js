@@ -7,12 +7,15 @@ import Navbar from "./components/Navbar";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { fetchData } from "./store/slices/courseSlice";
+import UserProfile from "./pages/UserProfile";
+import { fetchUser } from "./store/slices/userSlice";
 
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchData());
+    dispatch(fetchUser());
   }, [dispatch]);
 
   return (
@@ -21,6 +24,7 @@ function App() {
       <div className="app-background">
         <Routes>
           <Route path="/" element={<Dashboard />} />
+          <Route path="/user" element={<UserProfile />} />
           <Route path="/courses" element={<CourseListing />} />
           <Route path="/courses/:courseId" element={<CourseDetails />} />
         </Routes>

@@ -15,7 +15,9 @@ const Navbar = () => {
           <NavLink to="/courses">Courses</NavLink>
         </li>
         <li>
-          <i className="fa-solid fa-circle-user user"></i>
+          <NavLink to="/user">
+            <i className="fa-solid fa-circle-user user"></i>
+          </NavLink>
         </li>
       </ul>
     </nav>

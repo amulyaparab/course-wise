@@ -31,13 +31,17 @@ const CourseListing = () => {
               <i className="fa-solid fa-magnifying-glass search-icon"></i>
             </div>
           </div>
-          <div className="container">
-            <div className="all-courses">
-              {filteredCourses?.map((course) => (
-                <CourseCard key={course.id} {...course} />
-              ))}
+          {filteredCourses?.length ? (
+            <div className="container">
+              <div className="all-courses">
+                {filteredCourses?.map((course) => (
+                  <CourseCard key={course.id} {...course} />
+                ))}
+              </div>
             </div>
-          </div>
+          ) : (
+            <h2 className="blue-text"> Course Not Found.</h2>
+          )}
         </>
       )}
     </>
