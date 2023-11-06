@@ -17,7 +17,7 @@ const UserProfile = () => {
           {user?.enrolledCourses?.length} Courses
         </div>
         <div className="courses-count darker" onClick={() => navigate("/")}>
-          {user?.completedCourses?.length} Completed!
+          {user?.completedCourses?.length} Completed
         </div>
       </div>
     </div>
