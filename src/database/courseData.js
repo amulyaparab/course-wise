@@ -8,12 +8,12 @@ const fetchCourseData = (url) => {
           user: {
             id: 352984290,
             name: "Eva Brown",
-            username: "evaBrown",
+            username: "evabrown",
             email: "eva@example.com",
             profilePic:
               "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8YmVhdXRpZnVsJTIwcGVyc29uJTIwZmFjZXxlbnwwfHwwfHx8MA%3D%3D",
             enrolledCourses: [
-              "Web Development with React",
+              "Data Science Fundamentals",
               "Healthy Cooking Workshop",
             ],
           },

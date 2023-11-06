@@ -5,12 +5,27 @@ const UserProfile = () => {
   const user = useSelector((state) => state.user.user);
 
   return (
-    <div>
-      <h1> {user?.name} </h1>
+    <div className="user-profile">
       <img src={user?.profilePic} alt={user?.name} />
-      <p>Username: {user?.username}</p>
-      <p>Email: {user?.email}</p>
-      <p>Courses: {user?.enrolledCourses}</p>
+      <h1> {user?.name} </h1>
+      <table>
+        <tr>
+          <td>Username</td>
+          <td>{user?.username}</td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td>{user?.email}</td>
+        </tr>
+        {/* <tr>
+          <td>Courses</td>
+          <td>
+            {user?.enrolledCourses?.map((course) => (
+              <div>{course}</div>
+            ))}
+          </td>
+        </tr> */}
+      </table>
     </div>
   );
 };

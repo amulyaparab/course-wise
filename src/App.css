@@ -231,6 +231,7 @@
   justify-content: space-between;
   padding: 0 1rem;
 }
+
 .syllabus-headline i {
   color: #000000;
   font-weight: bold;
@@ -294,4 +295,52 @@
 
 .blue-text {
   color: #9ab4e7;
+}
+
+.user-profile {
+  background-color: #282c34;
+  width: 400px;
+  height: max-content;
+  padding: 2rem;
+  border-radius: 20px;
+  margin: auto;
+  margin-top: 3rem;
+}
+.user-profile img {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.user-profile table {
+  width: 400px;
+  text-align: left;
+  font-size: 18px;
+  border: #000000 solid black;
+  /* margin-left: 2rem; */
+}
+
+.user-profile table td {
+  padding: 0.5rem;
+  background-color: #575f70;
+}
+.user-profile table td div {
+  padding: 1rem 0;
+}
+
+.welcome-user {
+  background-color: rgba(133, 171, 255, 0.52);
+  width: 500px;
+  margin: auto;
+  height: 150px;
+  display: grid;
+  place-items: center;
+  border-radius: 15px;
+}
+
+.users-courses {
+  margin-top: 2rem;
+  justify-content: center;
+  gap: 3rem;
 }
