@@ -2,6 +2,7 @@ import React from "react";
 import CourseCard from "../components/CourseCard";
 import { useDispatch, useSelector } from "react-redux";
 import { searchCourses } from "../store/slices/courseSlice";
+import Loader from "../components/Loader";
 
 const CourseListing = () => {
   const dispatch = useDispatch();
@@ -13,7 +14,7 @@ const CourseListing = () => {
   return (
     <>
       {status === "Loading" ? (
-        <div>Loading...</div>
+        <Loader />
       ) : status === "Error" ? (
         <div>Error: {error}</div>
       ) : (

@@ -285,3 +285,9 @@
   font-size: 35px;
   cursor: pointer;
 }
+
+.loader {
+  margin: auto;
+  width: 300px;
+  margin-top: 3rem;
+}

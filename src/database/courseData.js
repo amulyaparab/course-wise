@@ -5,6 +5,15 @@ const fetchCourseData = (url) => {
         resolve({
           status: 200,
           message: "Success",
+          user: {
+            id: 352984290,
+            name: "Eva Brown",
+            email: "eva@example.com",
+            enrolledCourses: [
+              "Web Development with React",
+              "Healthy Cooking Workshop",
+            ],
+          },
           courseData: [
             {
               id: 1,
@@ -532,18 +541,14 @@ const fetchCourseData = (url) => {
                   name: "Liam Clark",
                   email: "liam@example.com",
                 },
+
                 {
                   id: 506,
-                  name: "Eva Brown",
-                  email: "eva@example.com",
-                },
-                {
-                  id: 507,
                   name: "Noah Davis",
                   email: "noah@example.com",
                 },
                 {
-                  id: 508,
+                  id: 507,
                   name: "Ava Smith",
                   email: "ava@example.com",
                 },
@@ -907,6 +912,11 @@ const fetchCourseData = (url) => {
                   id: 905,
                   name: "Ethan Turner",
                   email: "ethan@example.com",
+                },
+                {
+                  id: 906,
+                  name: "Eva Brown",
+                  email: "eva@example.com",
                 },
               ],
             },
