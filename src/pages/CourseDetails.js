@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { enrollToCourse } from "../store/slices/userSlice";
 
 const CourseDetails = () => {
   const [showSyllabus, setShowSyllabus] = useState(false);
@@ -10,7 +11,15 @@ const CourseDetails = () => {
   const currentCourse = courseData?.find(
     (course) => course?.id === Number(courseId)
   );
-
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user.user);
+  const courses = useSelector((state) => state.courses.filteredCourses);
+  const isUserEnrolled = courses
+    .filter((course) => user.enrolledCourses?.includes(course.name))
+    .find((course) => course.name.includes(currentCourse?.name));
+  const canCourseBeEnrolledIn =
+    (currentCourse?.enrollmentStatus === "Open" && !isUserEnrolled) ||
+    (currentCourse?.enrollmentStatus === "In Progress" && !isUserEnrolled);
   // const {
   //   name,
   //   instructor,
@@ -51,14 +60,22 @@ const CourseDetails = () => {
           <p>Schedule: {currentCourse?.schedule}</p>
           <p>Location: {currentCourse?.location}</p>
           <div>
-            Prerequisites:{" "}
+            Prerequisites:
             {currentCourse?.prerequisites?.map((requisite, index) => (
               <li key={index}>{requisite}</li>
             ))}
           </div>
-          {(currentCourse?.enrollmentStatus === "Open" ||
-            currentCourse?.enrollmentStatus === "In Progress") && (
-            <button>Enroll Now</button>
+          {canCourseBeEnrolledIn && (
+            <button
+              onClick={() => dispatch(enrollToCourse(currentCourse?.name))}
+            >
+              Enroll Now
+            </button>
+          )}
+          {isUserEnrolled && (
+            <button disabled className="enrolled-button">
+              Already Enrolled
+            </button>
           )}
         </div>
       </div>

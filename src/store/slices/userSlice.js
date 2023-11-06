@@ -13,7 +13,11 @@ const userSlice = createSlice({
     error: null,
     user: {},
   },
-  reducers: {},
+  reducers: {
+    enrollToCourse: (state, action) => {
+      state.user.enrolledCourses.push(action.payload);
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchUser.pending, (state) => {
@@ -30,5 +34,5 @@ const userSlice = createSlice({
   },
 });
 
-export const {} = userSlice.actions;
+export const { enrollToCourse } = userSlice.actions;
 export default userSlice.reducer;

@@ -8,7 +8,7 @@ const Dashboard = () => {
   const usersCourses = courses.filter((course) =>
     user.enrolledCourses?.includes(course.name)
   );
-  console.log(usersCourses);
+
   return (
     <>
       <h1>My Dashboard</h1>

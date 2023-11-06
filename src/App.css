@@ -144,13 +144,21 @@
   border-radius: 5px;
 }
 
+.enroll-now-tag,
 .enrolled-tag {
-  background-color: rgb(241, 199, 83);
   position: absolute;
   padding: 0.3rem 0.7rem;
   font-size: 14px;
   font-weight: bold;
   border-radius: 5px 0;
+}
+
+.enroll-now-tag {
+  background-color: rgb(241, 199, 83);
+}
+
+.enrolled-tag {
+  background-color: rgb(83, 241, 143);
 }
 
 .course-info {
@@ -173,7 +181,7 @@
 }
 
 .course-details li {
-  list-style: none;
+  list-style: square;
 }
 
 .course-details button {
@@ -186,7 +194,17 @@
   font-weight: bold;
   cursor: pointer;
 }
-
+.course-details button:hover {
+  background-color: rgb(255, 171, 102);
+}
+.course-details .enrolled-button {
+  background-color: rgb(83, 241, 143);
+  color: #333333;
+  cursor: not-allowed;
+}
+.course-details .enrolled-button:hover {
+  background-color: rgb(83, 241, 143);
+}
 .instuctor {
   font-size: 20px;
   color: #9ab4e7;
