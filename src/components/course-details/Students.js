@@ -1,5 +1,3 @@
-import React from "react";
-
 const Students = ({ currentCourse }) => {
   return (
     <div className="students">

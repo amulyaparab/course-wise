@@ -1,16 +1,16 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUser } from "./store/slices/userSlice";
+import { fetchData } from "./store/slices/courseSlice";
+import Loader from "./components/Loader";
+import Error from "./components/Error";
 import Dashboard from "./pages/Dashboard";
+import UserProfile from "./pages/UserProfile";
 import CourseDetails from "./pages/CourseDetails";
 import CourseListing from "./pages/CourseListing";
 import Navbar from "./components/Navbar";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchData } from "./store/slices/courseSlice";
-import UserProfile from "./pages/UserProfile";
-import { fetchUser } from "./store/slices/userSlice";
-import Error from "./components/Error";
-import Loader from "./components/Loader";
 
 function App() {
   const dispatch = useDispatch();

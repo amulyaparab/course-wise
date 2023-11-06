@@ -5,6 +5,7 @@ const fetchCourseData = (url) => {
         resolve({
           status: 200,
           message: "Success",
+
           user: {
             id: 352984290,
             name: "Eva Brown",
@@ -18,6 +19,7 @@ const fetchCourseData = (url) => {
             ],
             completedCourses: [],
           },
+
           courseData: [
             {
               id: 1,

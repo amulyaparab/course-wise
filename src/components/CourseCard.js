@@ -1,4 +1,3 @@
-import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { markCourseAsComplete } from "../store/slices/userSlice";
@@ -35,7 +34,6 @@ const CourseCard = ({
     navigate(`/courses/${id}`);
   };
 
-  console.log(user);
   return (
     <div
       className="single-course"

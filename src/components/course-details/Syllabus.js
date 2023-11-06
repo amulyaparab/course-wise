@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const Syllabus = ({ currentCourse }) => {
   const [showSyllabus, setShowSyllabus] = useState(false);
