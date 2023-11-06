@@ -4,14 +4,13 @@ const Syllabus = ({ currentCourse }) => {
   const [showSyllabus, setShowSyllabus] = useState(false);
 
   return (
-    <div className="syllabus">
+    <div className="syllabus" onClick={() => setShowSyllabus(!showSyllabus)}>
       <div className="syllabus-headline">
         <h3>Syllabus</h3>
         <i
           className={`fa-solid ${
             showSyllabus ? "fa-chevron-up" : "fa-chevron-down"
           }`}
-          onClick={() => setShowSyllabus(!showSyllabus)}
         ></i>
       </div>
 

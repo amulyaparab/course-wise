@@ -25,52 +25,55 @@ const CourseDetails = () => {
 
   return (
     <>
-      <h1>{currentCourse?.name}</h1>
+      <h1 className="heading">{currentCourse?.name}</h1>
       <div className="course-info">
-        <img src={currentCourse?.thumbnail} alt={currentCourse?.name} />
-        <div className="course-details">
-          <p className="instuctor">Instructor: {currentCourse?.instructor}</p>
-          <p>Description: {currentCourse?.description}</p>
-          <p>
-            Enrollment Status:{" "}
-            <span
-              className={
-                currentCourse?.enrollmentStatus === "Open"
-                  ? "open"
-                  : currentCourse?.enrollmentStatus === "Closed"
-                  ? "closed"
-                  : "progress"
-              }
-            >
-              {currentCourse?.enrollmentStatus}
-            </span>
-          </p>
-          <p>Duration: {currentCourse?.duration}</p>
-          <p>Schedule: {currentCourse?.schedule}</p>
-          <p>Location: {currentCourse?.location}</p>
-          <div>
-            Prerequisites:
-            {currentCourse?.prerequisites?.map((requisite, index) => (
-              <li key={index}>{requisite}</li>
-            ))}
-          </div>
-          {canCourseBeEnrolledIn && (
-            <button
-              onClick={() => dispatch(enrollToCourse(currentCourse?.name))}
-            >
-              Enroll Now
-            </button>
-          )}
-          {isUserEnrolled && (
-            <button disabled className="enrolled-button">
-              Already Enrolled
-            </button>
-          )}
+        <div className="course-image">
+          <img src={currentCourse?.thumbnail} alt={currentCourse?.name} />
+          <Students currentCourse={currentCourse} />
         </div>
-      </div>
-      <div className="course-extra-info">
-        <Syllabus currentCourse={currentCourse} />
-        <Students currentCourse={currentCourse} />
+
+        <div className="course-details">
+          <div>
+            <p className="instuctor">Instructor: {currentCourse?.instructor}</p>
+            <p>Description: {currentCourse?.description}</p>
+            <p>
+              Enrollment Status:{" "}
+              <span
+                className={
+                  currentCourse?.enrollmentStatus === "Open"
+                    ? "open"
+                    : currentCourse?.enrollmentStatus === "Closed"
+                    ? "closed"
+                    : "progress"
+                }
+              >
+                {currentCourse?.enrollmentStatus}
+              </span>
+            </p>
+            <p>Duration: {currentCourse?.duration}</p>
+            <p>Schedule: {currentCourse?.schedule}</p>
+            <p>Location: {currentCourse?.location}</p>
+            <div>
+              Prerequisites:
+              {currentCourse?.prerequisites?.map((requisite, index) => (
+                <li key={index}>{requisite}</li>
+              ))}
+            </div>
+            {canCourseBeEnrolledIn && (
+              <button
+                onClick={() => dispatch(enrollToCourse(currentCourse?.name))}
+              >
+                Enroll Now
+              </button>
+            )}
+            {isUserEnrolled && (
+              <button disabled className="enrolled-button">
+                Already Enrolled
+              </button>
+            )}
+          </div>
+          <Syllabus currentCourse={currentCourse} />
+        </div>
       </div>
     </>
   );
