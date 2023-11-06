@@ -13,7 +13,7 @@ const CourseCard = ({
 }) => {
   const navigate = useNavigate();
   const user = useSelector((state) => state.user.user);
-  const courses = useSelector((state) => state.courses.filteredCourses);
+  const courses = useSelector((state) => state.courses.courses);
   const isUserEnrolled = courses
     .filter((course) => user.enrolledCourses?.includes(course.name))
     .find((course) => course.name.includes(name));

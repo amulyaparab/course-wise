@@ -308,11 +308,12 @@
 .loader {
   margin: auto;
   width: 300px;
-  margin-top: 3rem;
+  margin-top: 7rem;
 }
 
 .blue-text {
   color: #9ab4e7;
+  margin-top: 4rem;
 }
 
 .user-profile {

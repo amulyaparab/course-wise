@@ -6,14 +6,14 @@ import { enrollToCourse } from "../store/slices/userSlice";
 const CourseDetails = () => {
   const [showSyllabus, setShowSyllabus] = useState(false);
   const { courseId } = useParams();
-  const courseData = useSelector((state) => state.courses.filteredCourses);
+  const courseData = useSelector((state) => state.courses.courses);
 
   const currentCourse = courseData?.find(
     (course) => course?.id === Number(courseId)
   );
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.user);
-  const courses = useSelector((state) => state.courses.filteredCourses);
+  const courses = useSelector((state) => state.courses.courses);
   const isUserEnrolled = courses
     .filter((course) => user.enrolledCourses?.includes(course.name))
     .find((course) => course.name.includes(currentCourse?.name));
