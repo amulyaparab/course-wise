@@ -5,6 +5,7 @@ import CourseCard from "../components/CourseCard";
 const Dashboard = () => {
   const user = useSelector((state) => state.user.user);
   const courses = useSelector((state) => state.courses.courses);
+
   const usersCourses = courses.filter((course) =>
     user.enrolledCourses?.includes(course.name)
   );

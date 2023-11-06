@@ -5,34 +5,24 @@ import { enrollToCourse } from "../store/slices/userSlice";
 
 const CourseDetails = () => {
   const [showSyllabus, setShowSyllabus] = useState(false);
+
   const { courseId } = useParams();
+  const dispatch = useDispatch();
+
   const courseData = useSelector((state) => state.courses.courses);
+  const user = useSelector((state) => state.user.user);
 
   const currentCourse = courseData?.find(
     (course) => course?.id === Number(courseId)
   );
-  const dispatch = useDispatch();
-  const user = useSelector((state) => state.user.user);
-  const courses = useSelector((state) => state.courses.courses);
-  const isUserEnrolled = courses
+
+  const isUserEnrolled = courseData
     .filter((course) => user.enrolledCourses?.includes(course.name))
     .find((course) => course.name.includes(currentCourse?.name));
+
   const canCourseBeEnrolledIn =
     (currentCourse?.enrollmentStatus === "Open" && !isUserEnrolled) ||
     (currentCourse?.enrollmentStatus === "In Progress" && !isUserEnrolled);
-  // const {
-  //   name,
-  //   instructor,
-  //   description,
-  //   enrollmentStatus,
-  //   thumbnail,
-  //   duration,
-  //   schedule,
-  //   location,
-  //   prerequisites,
-  //   syllabus,
-  //   students,
-  // } = currentCourse;
 
   return (
     <>

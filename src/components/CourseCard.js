@@ -1,6 +1,7 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { markCourseAsComplete } from "../store/slices/userSlice";
 
 const CourseCard = ({
   id,
@@ -13,18 +14,28 @@ const CourseCard = ({
   onDashboard,
 }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const user = useSelector((state) => state.user.user);
   const courses = useSelector((state) => state.courses.courses);
+
   const isUserEnrolled = courses
     .filter((course) => user.enrolledCourses?.includes(course.name))
     .find((course) => course.name.includes(name));
-  console.log(isUserEnrolled);
+
+  const isCourseCompleted = courses
+    .filter((course) => user.completedCourses?.includes(course.name))
+    .find((course) => course.name.includes(name));
+
   const canCourseBeEnrolledIn =
     (enrollmentStatus === "Open" && !isUserEnrolled) ||
     (enrollmentStatus === "In Progress" && !isUserEnrolled);
+
   const navigateToDetails = (id) => {
     navigate(`/courses/${id}`);
   };
+
+  console.log(user);
   return (
     <div
       className="single-course"
@@ -45,7 +56,7 @@ const CourseCard = ({
         <span>{duration}</span>
       </div>
       {onDashboard && (
-        <div className="progress-bar">
+        <div className={isCourseCompleted ? "complete" : "progress-bar"}>
           <div className="icon"></div>
         </div>
       )}
@@ -58,7 +69,14 @@ const CourseCard = ({
             <em>
               <strong>Due date:</strong> {duration} weeks from now
             </em>
-            <button className="mark-as-complete-btn">Mark As Complete</button>
+            <button
+              className={
+                isCourseCompleted ? "completed-btn" : "mark-as-complete-btn"
+              }
+              onClick={() => dispatch(markCourseAsComplete(name))}
+            >
+              {isCourseCompleted ? "Completed!" : "Mark As Complete"}
+            </button>
           </>
         )}
       </div>

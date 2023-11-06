@@ -8,16 +8,23 @@ export const fetchUser = createAsyncThunk("user/fetchUser", async () => {
 
 const userSlice = createSlice({
   name: "User",
+
   initialState: {
     status: "",
     error: null,
     user: {},
   },
+
   reducers: {
     enrollToCourse: (state, action) => {
       state.user.enrolledCourses.push(action.payload);
     },
+
+    markCourseAsComplete: (state, action) => {
+      state.user.completedCourses.push(action.payload);
+    },
   },
+
   extraReducers: (builder) => {
     builder
       .addCase(fetchUser.pending, (state) => {
@@ -34,5 +41,5 @@ const userSlice = createSlice({
   },
 });
 
-export const { enrollToCourse } = userSlice.actions;
+export const { enrollToCourse, markCourseAsComplete } = userSlice.actions;
 export default userSlice.reducer;

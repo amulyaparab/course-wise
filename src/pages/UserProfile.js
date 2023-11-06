@@ -3,8 +3,9 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const UserProfile = () => {
-  const user = useSelector((state) => state.user.user);
   const navigate = useNavigate();
+  const user = useSelector((state) => state.user.user);
+
   return (
     <div className="user-profile">
       <img src={user?.profilePic} alt={user?.name} />

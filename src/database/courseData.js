@@ -16,6 +16,7 @@ const fetchCourseData = (url) => {
               "Data Science Fundamentals",
               "Healthy Cooking Workshop",
             ],
+            completedCourses: [],
           },
           courseData: [
             {

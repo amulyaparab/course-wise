@@ -98,9 +98,11 @@
   text-align: left;
   background-color: #ebeff7;
 }
+
 .single-course:hover {
   background-color: #c9dbfd;
 }
+
 .single-course .course-thumbnail img {
   height: 150px;
   width: 100%;
@@ -108,7 +110,9 @@
   border-radius: 7px 7px 0 0;
   margin-bottom: 4px;
 }
-.progress-bar {
+
+.progress-bar,
+.complete {
   height: 5px;
   background-color: rgb(85, 207, 85);
   width: 50%;
@@ -116,6 +120,7 @@
   margin-bottom: 10px;
   position: relative;
 }
+
 .progress-bar .icon {
   height: 15px;
   width: 15px;
@@ -124,6 +129,9 @@
   position: absolute;
   left: 148px;
   bottom: -5px;
+}
+.complete {
+  width: 100%;
 }
 .single-course .course-thumbnail {
   position: relative;
@@ -212,17 +220,21 @@
   font-weight: bold;
   cursor: pointer;
 }
+
 .course-details button:hover {
   background-color: rgb(255, 171, 102);
 }
+
 .course-details .enrolled-button {
   background-color: rgb(83, 241, 143);
   color: #333333;
   cursor: not-allowed;
 }
+
 .course-details .enrolled-button:hover {
   background-color: rgb(83, 241, 143);
 }
+
 .instuctor {
   font-size: 20px;
   color: #9ab4e7;
@@ -261,6 +273,7 @@
   width: 632px;
   height: max-content;
 }
+
 .syllabus-headline {
   display: flex;
   align-items: center;
@@ -274,6 +287,7 @@
   font-size: 22px;
   cursor: pointer;
 }
+
 .syllabus .syllabus-details {
   display: flex;
   padding: 0 3rem;
@@ -343,15 +357,18 @@
   margin: auto;
   margin-top: 3rem;
 }
+
 .user-profile img {
   border-radius: 50%;
   width: 200px;
   height: 200px;
   object-fit: cover;
 }
+
 .user-profile h1 {
   margin: 10px;
 }
+
 .user-profile p {
   color: #c7daff;
   margin: 10px;
@@ -369,6 +386,7 @@
   margin-bottom: 1rem;
   font-size: 17px;
 }
+
 .user-profile .no-of-courses:hover {
   background-color: #a9c6ff;
   cursor: pointer;
@@ -394,18 +412,21 @@
   height: 340px;
   cursor: auto;
 }
+
 .users-courses .single-course .course-thumbnail {
   cursor: pointer;
 }
+
 .users-courses .single-course h3 {
   cursor: pointer;
 }
+
 .users-courses .single-course:hover {
   background-color: #ebeff7;
 }
 
-.mark-as-complete-btn {
-  background-color: rgb(241, 199, 83);
+.mark-as-complete-btn,
+.completed-btn {
   border: none;
   border-radius: 5px;
   padding: 0.5rem 1rem;
@@ -414,4 +435,12 @@
   font-size: 15px;
   font-weight: bold;
   cursor: pointer;
+}
+
+.mark-as-complete-btn {
+  background-color: rgb(241, 199, 83);
+}
+
+.completed-btn {
+  background-color: rgb(85, 207, 85);
 }
