@@ -1,12 +1,12 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import courseData from "../database/courseData";
 
 const CourseDetails = () => {
   const { courseId } = useParams();
-
-  const currentCourse = courseData.find(
-    (course) => course.id === Number(courseId)
+  const courseData = useSelector((state) => state.courses.courses);
+  const currentCourse = courseData?.find(
+    (course) => course?.id === Number(courseId)
   );
 
   const {
@@ -21,7 +21,7 @@ const CourseDetails = () => {
     prerequisites,
     syllabus,
     students,
-  } = currentCourse;
+  } = currentCourse ?? {};
 
   return (
     <>
@@ -50,8 +50,8 @@ const CourseDetails = () => {
           <p>Location: {location}</p>
           <div>
             Prerequisites:{" "}
-            {prerequisites.map((requisite) => (
-              <li>{requisite}</li>
+            {prerequisites?.map((requisite, index) => (
+              <li key={index}>{requisite}</li>
             ))}
           </div>
           {(enrollmentStatus === "Open" ||

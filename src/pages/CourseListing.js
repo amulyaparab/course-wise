@@ -1,14 +1,16 @@
 import React from "react";
-import courseData from "../database/courseData";
 import CourseCard from "../components/CourseCard";
+import { useSelector } from "react-redux";
 
 const CourseListing = () => {
+  const courseData = useSelector((state) => state.courses.courses);
+
   return (
     <>
       <h1>All Courses</h1>
       <input />
       <div className="all-courses">
-        {courseData.map((course) => (
+        {courseData?.map((course) => (
           <CourseCard key={course.id} {...course} />
         ))}
       </div>
