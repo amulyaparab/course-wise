@@ -6,6 +6,7 @@ const CourseListing = () => {
   return (
     <>
       <h1>All Courses</h1>
+      <input />
       <div className="all-courses">
         {courseData.map(
           ({

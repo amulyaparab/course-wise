@@ -8,7 +8,6 @@ const CourseDetails = () => {
     (course) => course.id === Number(courseId)
   );
   const {
-    id,
     name,
     instructor,
     description,
@@ -47,7 +46,14 @@ const CourseDetails = () => {
           <p>Duration: {duration}</p>
           <p>Schedule: {schedule}</p>
           <p>Location: {location}</p>
-          <p>Prerequisites: {prerequisites}</p>
+          <div>
+            Prerequisites:{" "}
+            {prerequisites.map((requisite) => (
+              <li>{requisite}</li>
+            ))}
+          </div>
+          {(enrollmentStatus === "Open" ||
+            enrollmentStatus === "In Progress") && <button>Enroll Now</button>}
         </div>
       </div>
       <div className="course-extra-info">
