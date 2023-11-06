@@ -43,9 +43,11 @@
   align-items: center;
   margin: 2rem 10rem 0 7rem;
 }
+
 .course-nav .search-bar {
   position: relative;
 }
+
 .course-nav input {
   padding: 7px 10px;
   font-size: medium;
@@ -56,17 +58,20 @@
   font-weight: bold;
   width: 350px;
 }
+
 .course-nav input::placeholder {
   font-size: small;
   font-weight: normal;
   color: #666666;
 }
+
 .course-nav .search-icon {
   color: #666666;
   position: absolute;
   top: 7px;
   right: 10px;
 }
+
 .container {
   width: 98%;
   margin: auto;
@@ -217,19 +222,28 @@
   border-radius: 10px;
   text-align: left;
   padding: 1rem;
+  width: 632px;
+  height: max-content;
 }
-
-.syllabus h3 {
-  padding-left: 1rem;
+.syllabus-headline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
 }
-
+.syllabus-headline i {
+  color: #000000;
+  font-weight: bold;
+  font-size: 22px;
+  cursor: pointer;
+}
 .syllabus .syllabus-details {
   display: flex;
+  padding: 0 3rem;
   align-items: center;
   gap: 3rem;
   background-color: #2c58af6c;
   margin: 0.5rem;
-  padding: 1rem;
   border-radius: 10px;
 }
 
@@ -245,6 +259,7 @@
   margin-top: 1rem;
   padding: 1rem 2rem;
   text-align: left;
+  height: 230px;
 }
 
 .students .student {

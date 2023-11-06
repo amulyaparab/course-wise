@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
 const CourseDetails = () => {
+  const [showSyllabus, setShowSyllabus] = useState(false);
   const { courseId } = useParams();
   const courseData = useSelector((state) => state.courses.filteredCourses);
 
@@ -10,76 +11,91 @@ const CourseDetails = () => {
     (course) => course?.id === Number(courseId)
   );
 
-  const {
-    name,
-    instructor,
-    description,
-    enrollmentStatus,
-    thumbnail,
-    duration,
-    schedule,
-    location,
-    prerequisites,
-    syllabus,
-    students,
-  } = currentCourse ?? {};
+  // const {
+  //   name,
+  //   instructor,
+  //   description,
+  //   enrollmentStatus,
+  //   thumbnail,
+  //   duration,
+  //   schedule,
+  //   location,
+  //   prerequisites,
+  //   syllabus,
+  //   students,
+  // } = currentCourse;
 
   return (
     <>
-      <h1>{name}</h1>
+      <h1>{currentCourse?.name}</h1>
       <div className="course-info">
-        <img src={thumbnail} alt={name} />
+        <img src={currentCourse?.thumbnail} alt={currentCourse?.name} />
         <div className="course-details">
-          <p className="instuctor">Instructor: {instructor}</p>
-          <p>Description: {description}</p>
+          <p className="instuctor">Instructor: {currentCourse?.instructor}</p>
+          <p>Description: {currentCourse?.description}</p>
           <p>
             Enrollment Status:{" "}
             <span
               className={
-                enrollmentStatus === "Open"
+                currentCourse?.enrollmentStatus === "Open"
                   ? "open"
-                  : enrollmentStatus === "Closed"
+                  : currentCourse?.enrollmentStatus === "Closed"
                   ? "closed"
                   : "progress"
               }
             >
-              {enrollmentStatus}
+              {currentCourse?.enrollmentStatus}
             </span>
           </p>
-          <p>Duration: {duration}</p>
-          <p>Schedule: {schedule}</p>
-          <p>Location: {location}</p>
+          <p>Duration: {currentCourse?.duration}</p>
+          <p>Schedule: {currentCourse?.schedule}</p>
+          <p>Location: {currentCourse?.location}</p>
           <div>
             Prerequisites:{" "}
-            {prerequisites?.map((requisite, index) => (
+            {currentCourse?.prerequisites?.map((requisite, index) => (
               <li key={index}>{requisite}</li>
             ))}
           </div>
-          {(enrollmentStatus === "Open" ||
-            enrollmentStatus === "In Progress") && <button>Enroll Now</button>}
+          {(currentCourse?.enrollmentStatus === "Open" ||
+            currentCourse?.enrollmentStatus === "In Progress") && (
+            <button>Enroll Now</button>
+          )}
         </div>
       </div>
       <div className="course-extra-info">
+        <div className="syllabus">
+          <div className="syllabus-headline">
+            {" "}
+            <h3>Syllabus</h3>
+            <i
+              className={`fa-solid ${
+                showSyllabus ? "fa-chevron-up" : "fa-chevron-down"
+              }`}
+              onClick={() => setShowSyllabus(!showSyllabus)}
+            ></i>
+          </div>
+          {showSyllabus &&
+            currentCourse?.syllabus?.map(({ week, topic, content }) => (
+              <div key={week} className="syllabus-details">
+                <div className="week">{week}</div>
+                <div>
+                  <h3>{topic}</h3>
+                  <p>{content}</p>
+                </div>
+              </div>
+            ))}
+        </div>
         <div className="students">
           <h3>Students</h3>
-          {students?.map(({ id, name }) => (
-            <div key={id} className="student">
-              <i className="fa-solid fa-circle-user"></i>
-              <p>{name}</p>
-            </div>
-          ))}
-        </div>
-        <div className="syllabus">
-          <h3>Syllabus</h3>
-          {syllabus?.map(({ week, topic, content }) => (
-            <div key={week} className="syllabus-details">
-              <div className="week">{week}</div>
-              <div>
-                <h3>{topic}</h3>
-                <p>{content}</p>
+          {currentCourse?.students?.map(({ id, name }, index) =>
+            index < 2 ? (
+              <div key={id} className="student">
+                <i className="fa-solid fa-circle-user"></i>
+                <p>{name}</p>
               </div>
-            </div>
-          ))}
+            ) : null
+          )}
+          <p> . . . {currentCourse?.students.length - 2} More Students</p>
         </div>
       </div>
     </>
