@@ -373,13 +373,17 @@
   color: #c7daff;
   margin: 10px;
 }
-
-.user-profile .no-of-courses {
+.user-profile .amount-of-courses {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.user-profile .courses-count {
   background-color: #c7daff;
   width: max-content;
   padding: 0.7rem 1.5rem;
   border-radius: 10px;
-  margin: auto;
   font-weight: bold;
   color: #000000;
   margin-top: 1.5rem;
@@ -387,9 +391,17 @@
   font-size: 17px;
 }
 
-.user-profile .no-of-courses:hover {
+.user-profile .courses-count:hover {
   background-color: #a9c6ff;
   cursor: pointer;
+}
+
+.user-profile .darker {
+  background-color: rgb(106, 155, 253);
+}
+
+.user-profile .darker:hover {
+  background-color: rgb(80, 138, 255);
 }
 
 .welcome-user {

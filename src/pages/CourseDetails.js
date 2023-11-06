@@ -1,22 +1,21 @@
-import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { enrollToCourse } from "../store/slices/userSlice";
+import Syllabus from "../components/course-details/Syllabus";
+import Students from "../components/course-details/Students";
 
 const CourseDetails = () => {
-  const [showSyllabus, setShowSyllabus] = useState(false);
-
   const { courseId } = useParams();
   const dispatch = useDispatch();
 
-  const courseData = useSelector((state) => state.courses.courses);
+  const courses = useSelector((state) => state.courses.courses);
   const user = useSelector((state) => state.user.user);
 
-  const currentCourse = courseData?.find(
+  const currentCourse = courses?.find(
     (course) => course?.id === Number(courseId)
   );
 
-  const isUserEnrolled = courseData
+  const isUserEnrolled = courses
     .filter((course) => user.enrolledCourses?.includes(course.name))
     .find((course) => course.name.includes(currentCourse?.name));
 
@@ -70,40 +69,8 @@ const CourseDetails = () => {
         </div>
       </div>
       <div className="course-extra-info">
-        <div className="syllabus">
-          <div className="syllabus-headline">
-            {" "}
-            <h3>Syllabus</h3>
-            <i
-              className={`fa-solid ${
-                showSyllabus ? "fa-chevron-up" : "fa-chevron-down"
-              }`}
-              onClick={() => setShowSyllabus(!showSyllabus)}
-            ></i>
-          </div>
-          {showSyllabus &&
-            currentCourse?.syllabus?.map(({ week, topic, content }) => (
-              <div key={week} className="syllabus-details">
-                <div className="week">{week}</div>
-                <div>
-                  <h3>{topic}</h3>
-                  <p>{content}</p>
-                </div>
-              </div>
-            ))}
-        </div>
-        <div className="students">
-          <h3>Students</h3>
-          {currentCourse?.students?.map(({ id, name }, index) =>
-            index < 2 ? (
-              <div key={id} className="student">
-                <i className="fa-solid fa-circle-user"></i>
-                <p>{name}</p>
-              </div>
-            ) : null
-          )}
-          <p> . . . {currentCourse?.students.length - 2} More Students</p>
-        </div>
+        <Syllabus currentCourse={currentCourse} />
+        <Students currentCourse={currentCourse} />
       </div>
     </>
   );

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const UserProfile = () => {
   const navigate = useNavigate();
-  const user = useSelector((state) => state.user.user);
+  const { user } = useSelector((state) => state.user);
 
   return (
     <div className="user-profile">
@@ -12,8 +12,13 @@ const UserProfile = () => {
       <h1> {user?.name} </h1>
       <p>@{user?.username}</p>
       <p>Email: {user?.email}</p>
-      <div className="no-of-courses" onClick={() => navigate("/")}>
-        {user?.enrolledCourses?.length} Courses
+      <div className="amount-of-courses">
+        <div className="courses-count" onClick={() => navigate("/")}>
+          {user?.enrolledCourses?.length} Courses
+        </div>
+        <div className="courses-count darker" onClick={() => navigate("/")}>
+          {user?.completedCourses?.length} Completed!
+        </div>
       </div>
     </div>
   );
