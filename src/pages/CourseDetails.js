@@ -1,12 +1,14 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import courseData from "../database/courseData";
-import { Fragment } from "react";
+
 const CourseDetails = () => {
   const { courseId } = useParams();
+
   const currentCourse = courseData.find(
     (course) => course.id === Number(courseId)
   );
+
   const {
     name,
     instructor,
@@ -59,8 +61,9 @@ const CourseDetails = () => {
       <div className="course-extra-info">
         <div className="students">
           <h3>Students</h3>
-          {students?.map(({ id, name, email }) => (
+          {students?.map(({ id, name }) => (
             <div key={id} className="student">
+              <i class="fa-solid fa-circle-user"></i>
               <p>{name}</p>
             </div>
           ))}
