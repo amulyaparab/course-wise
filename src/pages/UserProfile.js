@@ -1,31 +1,19 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const UserProfile = () => {
   const user = useSelector((state) => state.user.user);
-
+  const navigate = useNavigate();
   return (
     <div className="user-profile">
       <img src={user?.profilePic} alt={user?.name} />
       <h1> {user?.name} </h1>
-      <table>
-        <tr>
-          <td>Username</td>
-          <td>{user?.username}</td>
-        </tr>
-        <tr>
-          <td>Email</td>
-          <td>{user?.email}</td>
-        </tr>
-        {/* <tr>
-          <td>Courses</td>
-          <td>
-            {user?.enrolledCourses?.map((course) => (
-              <div>{course}</div>
-            ))}
-          </td>
-        </tr> */}
-      </table>
+      <p>@{user?.username}</p>
+      <p>Email: {user?.email}</p>
+      <div className="no-of-courses" onClick={() => navigate("/")}>
+        {user?.enrolledCourses?.length} Courses
+      </div>
     </div>
   );
 };

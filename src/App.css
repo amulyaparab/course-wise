@@ -92,13 +92,15 @@
 
 .single-course {
   width: 300px;
-  height: 250px;
+  height: max-content;
   cursor: pointer;
   border-radius: 7px;
   text-align: left;
   background-color: #ebeff7;
 }
-
+.single-course:hover {
+  background-color: #c9dbfd;
+}
 .single-course .course-thumbnail img {
   height: 150px;
   width: 100%;
@@ -106,7 +108,23 @@
   border-radius: 7px 7px 0 0;
   margin-bottom: 4px;
 }
-
+.progress-bar {
+  height: 5px;
+  background-color: rgb(85, 207, 85);
+  width: 50%;
+  margin-top: -7.9px;
+  margin-bottom: 10px;
+  position: relative;
+}
+.progress-bar .icon {
+  height: 15px;
+  width: 15px;
+  background-color: rgb(85, 207, 85);
+  border-radius: 50%;
+  position: absolute;
+  left: 148px;
+  bottom: -5px;
+}
 .single-course .course-thumbnail {
   position: relative;
 }
@@ -331,21 +349,29 @@
   height: 200px;
   object-fit: cover;
 }
-
-.user-profile table {
-  width: 400px;
-  text-align: left;
-  font-size: 18px;
-  border: #000000 solid black;
-  /* margin-left: 2rem; */
+.user-profile h1 {
+  margin: 10px;
+}
+.user-profile p {
+  color: #c7daff;
+  margin: 10px;
 }
 
-.user-profile table td {
-  padding: 0.5rem;
-  background-color: #575f70;
+.user-profile .no-of-courses {
+  background-color: #c7daff;
+  width: max-content;
+  padding: 0.7rem 1.5rem;
+  border-radius: 10px;
+  margin: auto;
+  font-weight: bold;
+  color: #000000;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 17px;
 }
-.user-profile table td div {
-  padding: 1rem 0;
+.user-profile .no-of-courses:hover {
+  background-color: #a9c6ff;
+  cursor: pointer;
 }
 
 .welcome-user {
@@ -362,4 +388,30 @@
   margin-top: 2rem;
   justify-content: center;
   gap: 3rem;
+}
+
+.users-courses .single-course {
+  height: 340px;
+  cursor: auto;
+}
+.users-courses .single-course .course-thumbnail {
+  cursor: pointer;
+}
+.users-courses .single-course h3 {
+  cursor: pointer;
+}
+.users-courses .single-course:hover {
+  background-color: #ebeff7;
+}
+
+.mark-as-complete-btn {
+  background-color: rgb(241, 199, 83);
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+  width: 270px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
 }

@@ -10,6 +10,7 @@ const CourseCard = ({
   duration,
   location,
   instructor,
+  onDashboard,
 }) => {
   const navigate = useNavigate();
   const user = useSelector((state) => state.user.user);
@@ -21,14 +22,19 @@ const CourseCard = ({
   const canCourseBeEnrolledIn =
     (enrollmentStatus === "Open" && !isUserEnrolled) ||
     (enrollmentStatus === "In Progress" && !isUserEnrolled);
-
+  const navigateToDetails = (id) => {
+    navigate(`/courses/${id}`);
+  };
   return (
     <div
       className="single-course"
       key={id}
-      onClick={() => navigate(`/courses/${id}`)}
+      onClick={() => !onDashboard && navigateToDetails(id)}
     >
-      <div className="course-thumbnail">
+      <div
+        className="course-thumbnail"
+        onClick={() => onDashboard && navigateToDetails(id)}
+      >
         {isUserEnrolled && (
           <div className="enrolled-tag enrolled">Enrolled</div>
         )}
@@ -38,10 +44,23 @@ const CourseCard = ({
         <img src={thumbnail} alt={name} />
         <span>{duration}</span>
       </div>
+      {onDashboard && (
+        <div className="progress-bar">
+          <div className="icon"></div>
+        </div>
+      )}
       <div className="details">
         <small>{location}</small>
-        <h3>{name}</h3>
+        <h3 onClick={() => onDashboard && navigateToDetails(id)}>{name}</h3>
         <p>Instructor: {instructor}</p>
+        {onDashboard && (
+          <>
+            <em>
+              <strong>Due date:</strong> {duration} weeks from now
+            </em>
+            <button className="mark-as-complete-btn">Mark As Complete</button>
+          </>
+        )}
       </div>
     </div>
   );

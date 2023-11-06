@@ -17,7 +17,9 @@ const Dashboard = () => {
       </div>
       <div className="all-courses users-courses">
         {usersCourses?.map((course) => (
-          <CourseCard {...course} />
+          <div>
+            <CourseCard {...course} onDashboard />
+          </div>
         ))}
       </div>
     </>
