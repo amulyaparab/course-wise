@@ -12,7 +12,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchData("https://example.com/api/courses"));
+    dispatch(fetchData());
   }, [dispatch]);
 
   return (

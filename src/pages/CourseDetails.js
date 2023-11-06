@@ -4,7 +4,8 @@ import { useParams } from "react-router-dom";
 
 const CourseDetails = () => {
   const { courseId } = useParams();
-  const courseData = useSelector((state) => state.courses.courses);
+  const courseData = useSelector((state) => state.courses.filteredCourses);
+
   const currentCourse = courseData?.find(
     (course) => course?.id === Number(courseId)
   );
@@ -63,7 +64,7 @@ const CourseDetails = () => {
           <h3>Students</h3>
           {students?.map(({ id, name }) => (
             <div key={id} className="student">
-              <i class="fa-solid fa-circle-user"></i>
+              <i className="fa-solid fa-circle-user"></i>
               <p>{name}</p>
             </div>
           ))}

@@ -11,7 +11,6 @@ const CourseCard = ({
   instructor,
 }) => {
   const navigate = useNavigate();
-
   const canCourseBeEnrolledIn =
     enrollmentStatus === "Open" || enrollmentStatus === "In Progress";
 
