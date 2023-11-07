@@ -15,11 +15,17 @@ export const Dashboard = () => {
       <div className="welcome-user">
         <h1>Hi {user?.name}! 👋</h1>
       </div>
-      <div className="all-courses users-courses">
-        {usersCourses?.map((course) => (
-          <CourseCard key={course.id} {...course} onDashboard />
-        ))}
-      </div>
+      {usersCourses?.length ? (
+        <div className="all-courses users-courses">
+          {usersCourses?.map((course) => (
+            <CourseCard key={course.id} {...course} onDashboard />
+          ))}
+        </div>
+      ) : (
+        <h2 className="blue-text">
+          No Courses here! Enroll now and learn something new today! 🦉
+        </h2>
+      )}
     </>
   );
 };

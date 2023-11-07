@@ -4,6 +4,7 @@ import {
   markCourseAsComplete,
   likeCourse,
   dislikeCourse,
+  markCourseAsIncomplete,
 } from "../store-and-slices/slices/userSlice";
 
 const CourseCard = ({
@@ -92,7 +93,11 @@ const CourseCard = ({
                 "completed-btn",
                 "mark-as-complete-btn"
               )}
-              onClick={() => dispatch(markCourseAsComplete(name))}
+              onClick={() =>
+                isCourseCompleted
+                  ? dispatch(markCourseAsIncomplete(name))
+                  : dispatch(markCourseAsComplete(name))
+              }
             >
               {afterCourseCompletion("Completed!", "Mark As Complete")}
             </button>

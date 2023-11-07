@@ -4,6 +4,8 @@ import {
   enrollToCourse,
   likeCourse,
   markCourseAsComplete,
+  markCourseAsIncomplete,
+  unEnrollFromCourse,
 } from "../../store-and-slices/slices/userSlice";
 
 const CourseInfo = ({ courses, currentCourse }) => {
@@ -64,14 +66,16 @@ const CourseInfo = ({ courses, currentCourse }) => {
           <li key={index}>{requisite}</li>
         ))}
       </div>
-      {canCourseBeEnrolledIn && (
-        <button onClick={() => dispatch(enrollToCourse(currentCourse?.name))}>
-          Enroll Now
-        </button>
-      )}
-      {isUserEnrolled && (
-        <button disabled className="enrolled-button">
-          Already Enrolled
+      {(canCourseBeEnrolledIn || isUserEnrolled) && (
+        <button
+          className={`${isUserEnrolled && "enrolled-button"}`}
+          onClick={() =>
+            isUserEnrolled
+              ? dispatch(unEnrollFromCourse(currentCourse?.name))
+              : dispatch(enrollToCourse(currentCourse?.name))
+          }
+        >
+          {isUserEnrolled ? "Already Enrolled" : "Enroll Now"}
         </button>
       )}
       {isUserEnrolled && (
@@ -79,7 +83,11 @@ const CourseInfo = ({ courses, currentCourse }) => {
           className={
             isCourseCompleted ? "completed-btn" : "mark-as-complete-btn"
           }
-          onClick={() => dispatch(markCourseAsComplete(currentCourse?.name))}
+          onClick={() =>
+            isCourseCompleted
+              ? dispatch(markCourseAsIncomplete(currentCourse?.name))
+              : dispatch(markCourseAsComplete(currentCourse?.name))
+          }
         >
           {isCourseCompleted ? "Completed!" : "Mark As Complete"}
         </button>

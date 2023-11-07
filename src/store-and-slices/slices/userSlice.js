@@ -37,7 +37,19 @@ const userSlice = createSlice({
 
     dislikeCourse: (state, action) => {
       state.user.likedCourses = state.user.likedCourses.filter(
-        (item) => item !== action.payload
+        (course) => course !== action.payload
+      );
+    },
+
+    unEnrollFromCourse: (state, action) => {
+      state.user.enrolledCourses = state.user.enrolledCourses.filter(
+        (course) => course !== action.payload
+      );
+    },
+
+    markCourseAsIncomplete: (state, action) => {
+      state.user.completedCourses = state.user.completedCourses.filter(
+        (course) => course !== action.payload
       );
     },
   },
@@ -63,5 +75,7 @@ export const {
   dislikeCourse,
   markCourseAsComplete,
   likeCourse,
+  unEnrollFromCourse,
+  markCourseAsIncomplete,
 } = userSlice.actions;
 export default userSlice.reducer;

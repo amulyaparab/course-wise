@@ -10,7 +10,7 @@
   --dark-yellow: rgb(241, 199, 83);
   --light-yellow: rgb(255, 255, 148);
   --closed-tag-red: rgb(255, 91, 91);
-  --orange: rgb(255, 171, 102);
+  --purple: rgb(102, 143, 255);
   --single-course-background: #ebeff7;
   --very-light-blue: #c7daff;
   --general-text-blue: #9ab4e7;
@@ -252,13 +252,12 @@
 }
 
 .course-details button:hover {
-  background-color: var(--orange);
+  background-color: var(--purple);
 }
 
 .course-details .enrolled-button {
   background-color: var(--enrolled-tag-green);
   color: var(--dark-grey);
-  cursor: not-allowed;
 }
 
 .course-details .enrolled-button:hover {
@@ -489,13 +488,16 @@
   cursor: pointer;
 }
 
+.mark-as-complete-btn:hover {
+  background-color: var(--purple);
+}
+
 .mark-as-complete-btn {
   background-color: var(--dark-yellow);
 }
 
 .completed-btn {
   background-color: var(--progress-bar-green);
-  cursor: not-allowed;
 }
 
 .course-details .mark-as-complete-btn {
@@ -504,7 +506,6 @@
 
 .course-details .completed-btn {
   background-color: var(--progress-bar-green);
-  cursor: not-allowed;
   margin-left: 1rem;
   width: max-content;
 }
