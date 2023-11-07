@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import fetchCourseData from "../../database/courseData";
-import { produce } from "immer";
 export const fetchUser = createAsyncThunk("user/fetchUser", async () => {
   const { user } = await fetchCourseData("https://example.com/api/courses");
   return user;

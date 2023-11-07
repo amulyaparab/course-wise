@@ -1,6 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { markCourseAsComplete, likeCourse } from "../store/slices/userSlice";
+import {
+  markCourseAsComplete,
+  likeCourse,
+  dislikeCourse,
+} from "../store/slices/userSlice";
 
 const CourseCard = ({
   id,
@@ -52,6 +56,8 @@ const CourseCard = ({
           className={`fa-solid fa-heart heart ${isCourseLiked && "red-heart"}`}
           onClick={(event) => {
             event.stopPropagation();
+            // isCourseLiked
+            // ? dispatch(dislikeCourse(name)) :
             dispatch(likeCourse(name));
           }}
         ></i>
