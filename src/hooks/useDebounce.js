@@ -1,12 +1,14 @@
-export const useDebounce = (func, delay) => {
+export const useDebounce = (callback, delay) => {
   let timerId;
 
   return function () {
     let context = this,
       args = arguments;
+
     clearTimeout(timerId);
+
     timerId = setTimeout(() => {
-      func.apply(context, args);
+      callback.apply(context, args);
     }, delay);
   };
 };

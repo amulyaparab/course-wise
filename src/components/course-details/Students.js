@@ -1,8 +1,8 @@
-const Students = ({ currentCourse }) => {
+const Students = ({ students = [] }) => {
   return (
     <div className="students">
       <h3>Students</h3>
-      {currentCourse?.students?.map(({ id, name }, index) =>
+      {students.map(({ id, name }, index) =>
         index < 2 ? (
           <div key={id} className="student">
             <i className="fa-solid fa-circle-user"></i>
@@ -10,7 +10,7 @@ const Students = ({ currentCourse }) => {
           </div>
         ) : null
       )}
-      <p> . . . {currentCourse?.students.length - 2} More Students</p>
+      <p> . . . {students.length - 2} More Students</p>
     </div>
   );
 };

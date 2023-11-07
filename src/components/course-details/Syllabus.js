@@ -1,11 +1,14 @@
 import { useState } from "react";
 
-const Syllabus = ({ currentCourse }) => {
+const Syllabus = ({ syllabus = [] }) => {
   const [showSyllabus, setShowSyllabus] = useState(false);
 
   return (
-    <div className="syllabus" onClick={() => setShowSyllabus(!showSyllabus)}>
-      <div className="syllabus-headline">
+    <div className="syllabus">
+      <div
+        className="syllabus-headline"
+        onClick={() => setShowSyllabus(!showSyllabus)}
+      >
         <h3>Syllabus</h3>
         <i
           className={`fa-solid ${
@@ -14,7 +17,7 @@ const Syllabus = ({ currentCourse }) => {
         ></i>
       </div>
       {showSyllabus &&
-        currentCourse?.syllabus?.map(({ week, topic, content }) => (
+        syllabus.map(({ week, topic, content }) => (
           <div key={week} className="syllabus-details">
             <div className="week">{week}</div>
             <div>

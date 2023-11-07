@@ -8,32 +8,43 @@ import {
   unEnrollFromCourse,
 } from "../../store-and-slices/slices/userSlice";
 
-const CourseInfo = ({ courses, currentCourse }) => {
+const CourseInfo = ({ courses = [], currentCourse = {} }) => {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user.user);
+  const user = useSelector((state) => state.user.user) || {};
+
+  const {
+    name,
+    enrollmentStatus,
+    instructor,
+    description,
+    duration,
+    schedule,
+    location,
+    prerequisites,
+  } = currentCourse;
 
   const isUserEnrolled = courses
-    .filter((course) => user?.enrolledCourses?.includes(course.name))
-    .find((course) => course.name.includes(currentCourse?.name));
+    .filter((course) => user.enrolledCourses?.includes(course.name))
+    .find((course) => course.name.includes(name));
 
   const canCourseBeEnrolledIn =
-    (currentCourse?.enrollmentStatus === "Open" && !isUserEnrolled) ||
-    (currentCourse?.enrollmentStatus === "In Progress" && !isUserEnrolled);
+    (enrollmentStatus === "Open" && !isUserEnrolled) ||
+    (enrollmentStatus === "In Progress" && !isUserEnrolled);
 
   const isCourseCompleted = courses
-    .filter((course) => user?.completedCourses?.includes(course.name))
-    .find((course) => course.name.includes(currentCourse?.name));
+    .filter((course) => user.completedCourses?.includes(course.name))
+    .find((course) => course.name.includes(name));
 
   const isCourseLiked = courses
-    .filter((course) => user?.likedCourses?.includes(course.name))
-    .find((course) => course.name.includes(currentCourse?.name));
+    .filter((course) => user.likedCourses?.includes(course.name))
+    .find((course) => course.name.includes(name));
 
   const enrollOrUnenroll = () => {
     if (isUserEnrolled) {
-      dispatch(unEnrollFromCourse(currentCourse?.name));
-      dispatch(markCourseAsIncomplete(currentCourse?.name));
+      dispatch(unEnrollFromCourse(name));
+      dispatch(markCourseAsIncomplete(name));
     } else {
-      dispatch(enrollToCourse(currentCourse?.name));
+      dispatch(enrollToCourse(name));
     }
   };
 
@@ -46,32 +57,32 @@ const CourseInfo = ({ courses, currentCourse }) => {
         onClick={(event) => {
           event.stopPropagation();
           isCourseLiked
-            ? dispatch(dislikeCourse(currentCourse?.name))
-            : dispatch(likeCourse(currentCourse?.name));
+            ? dispatch(dislikeCourse(name))
+            : dispatch(likeCourse(name));
         }}
       ></i>
-      <p className="instuctor">Instructor: {currentCourse?.instructor}</p>
-      <p>Description: {currentCourse?.description}</p>
+      <p className="instuctor">Instructor: {instructor}</p>
+      <p>Description: {description}</p>
       <p>
         Enrollment Status:{" "}
         <span
           className={
-            currentCourse?.enrollmentStatus === "Open"
+            enrollmentStatus === "Open"
               ? "open"
-              : currentCourse?.enrollmentStatus === "Closed"
+              : enrollmentStatus === "Closed"
               ? "closed"
               : "progress"
           }
         >
-          {currentCourse?.enrollmentStatus}
+          {enrollmentStatus}
         </span>
       </p>
-      <p>Duration: {currentCourse?.duration}</p>
-      <p>Schedule: {currentCourse?.schedule}</p>
-      <p>Location: {currentCourse?.location}</p>
+      <p>Duration: {duration}</p>
+      <p>Schedule: {schedule}</p>
+      <p>Location: {location}</p>
       <div>
         Prerequisites:
-        {currentCourse?.prerequisites?.map((requisite, index) => (
+        {prerequisites?.map((requisite, index) => (
           <li key={index}>{requisite}</li>
         ))}
       </div>
@@ -90,8 +101,8 @@ const CourseInfo = ({ courses, currentCourse }) => {
           }
           onClick={() =>
             isCourseCompleted
-              ? dispatch(markCourseAsIncomplete(currentCourse?.name))
-              : dispatch(markCourseAsComplete(currentCourse?.name))
+              ? dispatch(markCourseAsIncomplete(name))
+              : dispatch(markCourseAsComplete(name))
           }
         >
           {isCourseCompleted ? "Completed!" : "Mark As Complete"}

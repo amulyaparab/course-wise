@@ -40,6 +40,10 @@
   cursor: pointer;
 }
 
+.navbar h1 span {
+  font-size: 2rem;
+}
+
 .navbar ul {
   display: flex;
   list-style: none;
@@ -302,7 +306,6 @@
   width: 600px;
   height: max-content;
   margin-top: 2rem;
-  cursor: pointer;
 }
 
 .syllabus-headline {
@@ -310,6 +313,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 1rem;
+  cursor: pointer;
 }
 
 .syllabus-headline i {
@@ -451,6 +455,7 @@
   display: grid;
   place-items: center;
   border-radius: 15px;
+  cursor: pointer;
 }
 
 .users-courses {
@@ -556,11 +561,19 @@
   .course-info {
     flex-wrap: wrap;
   }
+
+  .navbar h1 span {
+    font-size: 1.5rem;
+  }
 }
 
 @media screen and (min-width: 769px) and (max-width: 1024px) {
   .app-background h1 {
     font-size: 20px;
+  }
+
+  .navbar h1 span {
+    font-size: 1rem;
   }
 }
 
@@ -575,13 +588,6 @@
   .app-background h1 {
     font-size: 20px;
     margin: 1.5rem 0;
-  }
-
-  .app-background .users-courses {
-    background-color: var(--primary-background);
-    width: 360px;
-    margin: auto;
-    padding-top: 2rem;
   }
 
   .user-profile {
@@ -608,15 +614,15 @@
 
   .navbar h1 {
     font-size: 17px;
-    margin-left: 0.8rem;
+    margin-left: 0.5rem;
   }
 
-  .navbar span {
-    font-size: 16px;
+  .navbar h1 span {
+    font-size: 17px;
   }
 
   .navbar ul {
-    width: 150px;
+    width: 130px;
     gap: 0.7rem;
   }
 
@@ -634,7 +640,7 @@
   }
 
   .course-nav input {
-    width: 300px;
+    width: 280px;
   }
 
   .app-background .all-courses {
@@ -644,6 +650,14 @@
     justify-content: center;
     padding-bottom: 4rem;
     margin-left: -5px;
+  }
+
+  .app-background .users-courses {
+    background-color: var(--primary-background);
+    width: 360px;
+    margin: auto;
+    padding-top: 2rem;
+    box-sizing: border-box;
   }
 
   .course-info {

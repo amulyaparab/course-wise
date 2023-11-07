@@ -6,7 +6,7 @@ export const Navbar = () => {
   return (
     <nav className="navbar">
       <h1 onClick={() => navigate("/")}>
-        CourseWise <span style={{ fontSize: "2rem" }}>🦉</span>
+        CourseWise <span>🦉</span>
       </h1>
       <ul>
         <li>

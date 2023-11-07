@@ -6,23 +6,23 @@ import CourseInfo from "../components/course-details/CourseInfo";
 
 const CourseDetails = () => {
   const { courseId } = useParams();
-  const courses = useSelector((state) => state.courses.courses);
+  const courses = useSelector((state) => state.courses.courses) || [];
 
-  const currentCourse = courses?.find(
-    (course) => course?.id === Number(courseId)
-  );
+  const currentCourse =
+    courses.find((course) => course?.id === Number(courseId)) || {};
 
+  const { name, thumbnail, students, syllabus } = currentCourse;
   return (
     <>
-      <h1 className="heading">{currentCourse?.name}</h1>
+      <h1 className="heading">{name}</h1>
       <div className="course-info">
         <div className="course-image">
-          <img src={currentCourse?.thumbnail} alt={currentCourse?.name} />
-          <Students currentCourse={currentCourse} />
+          <img src={thumbnail} alt={name} />
+          <Students students={students} />
         </div>
         <div className="course-details">
           <CourseInfo courses={courses} currentCourse={currentCourse} />
-          <Syllabus currentCourse={currentCourse} />
+          <Syllabus syllabus={syllabus} />
         </div>
       </div>
     </>

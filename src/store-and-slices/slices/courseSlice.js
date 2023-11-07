@@ -2,11 +2,15 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import fetchCourseData from "../../database/courseData";
 
 export const fetchData = createAsyncThunk("courses/fetchCourses", async () => {
-  const { courseData } = await fetchCourseData(
-    "https://example.com/api/courses"
-  );
+  try {
+    const { courseData } = await fetchCourseData(
+      "https://example.com/api/courses"
+    );
 
-  return courseData;
+    return courseData;
+  } catch (err) {
+    console.error(err);
+  }
 });
 
 const courseSlice = createSlice({
@@ -22,6 +26,7 @@ const courseSlice = createSlice({
   reducers: {
     searchCourses: (state, action) => {
       const payload = action.payload.toLowerCase().trim();
+
       const doesValueHavePayload = (value) =>
         value.toLowerCase().includes(payload);
 
@@ -50,4 +55,5 @@ const courseSlice = createSlice({
 });
 
 export const { searchCourses } = courseSlice.actions;
+
 export default courseSlice.reducer;

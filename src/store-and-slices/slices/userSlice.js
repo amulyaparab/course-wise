@@ -78,4 +78,5 @@ export const {
   unEnrollFromCourse,
   markCourseAsIncomplete,
 } = userSlice.actions;
+
 export default userSlice.reducer;

@@ -1,4 +1,4 @@
-const fetchCourseData = (url) => {
+const fetchCourseData = (url = "") => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (url === "https://example.com/api/courses") {

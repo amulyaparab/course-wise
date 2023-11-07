@@ -1,23 +1,25 @@
 import { useSelector } from "react-redux";
 import CourseCard from "../components/CourseCard";
+import { useNavigate } from "react-router-dom";
 
 export const Dashboard = () => {
-  const user = useSelector((state) => state.user.user);
-  const courses = useSelector((state) => state.courses.courses);
+  const user = useSelector((state) => state.user.user) || {};
+  const courses = useSelector((state) => state.courses.courses) || [];
+  const navigate = useNavigate();
 
-  const usersCourses = courses.filter((course) =>
-    user?.enrolledCourses?.includes(course.name)
-  );
+  const usersCourses =
+    courses.filter((course) => user?.enrolledCourses?.includes(course.name)) ||
+    [];
 
   return (
     <>
       <h1>My Dashboard</h1>
-      <div className="welcome-user">
-        <h1>Hi {user?.name}! 👋</h1>
+      <div className="welcome-user" onClick={() => navigate("/user")}>
+        <h1>Hi {user.name}! 👋</h1>
       </div>
-      {usersCourses?.length ? (
+      {usersCourses.length ? (
         <div className="all-courses users-courses">
-          {usersCourses?.map((course) => (
+          {usersCourses.map((course) => (
             <CourseCard key={course.id} {...course} onDashboard />
           ))}
         </div>

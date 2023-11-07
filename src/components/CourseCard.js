@@ -8,31 +8,31 @@ import {
 } from "../store-and-slices/slices/userSlice";
 
 const CourseCard = ({
-  id,
-  enrollmentStatus,
-  thumbnail,
-  name,
-  duration,
-  location,
-  instructor,
-  onDashboard,
+  id = 0,
+  enrollmentStatus = "Closed",
+  thumbnail = "",
+  name = "",
+  duration = "",
+  location = "",
+  instructor = "",
+  onDashboard = false,
 }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const user = useSelector((state) => state.user.user);
-  const courses = useSelector((state) => state.courses.courses);
+  const user = useSelector((state) => state.user.user) || {};
+  const courses = useSelector((state) => state.courses.courses) || [];
 
   const isUserEnrolled = courses
-    .filter((course) => user?.enrolledCourses?.includes(course.name))
+    .filter((course) => user.enrolledCourses?.includes(course.name))
     .find((course) => course.name.includes(name));
 
   const isCourseCompleted = courses
-    .filter((course) => user?.completedCourses?.includes(course.name))
+    .filter((course) => user.completedCourses?.includes(course.name))
     .find((course) => course.name.includes(name));
 
   const isCourseLiked = courses
-    .filter((course) => user?.likedCourses?.includes(course.name))
+    .filter((course) => user.likedCourses?.includes(course.name))
     .find((course) => course.name.includes(name));
 
   const canCourseBeEnrolledIn =

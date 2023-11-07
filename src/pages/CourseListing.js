@@ -5,10 +5,12 @@ import { useDebounce } from "../hooks/useDebounce";
 
 const CourseListing = () => {
   const dispatch = useDispatch();
-  const { filteredCourses } = useSelector((state) => state.courses);
+  const filteredCourses =
+    useSelector((state) => state.courses.filteredCourses) || [];
 
   const searchforCourses = (event) =>
     dispatch(searchCourses(event.target.value));
+
   const debouncedSearch = useDebounce(searchforCourses, 300);
 
   return (
@@ -23,10 +25,10 @@ const CourseListing = () => {
           <i className="fa-solid fa-magnifying-glass search-icon"></i>
         </div>
       </div>
-      {filteredCourses?.length ? (
+      {filteredCourses.length ? (
         <div className="container">
           <div className="all-courses">
-            {filteredCourses?.map((course) => (
+            {filteredCourses.map((course) => (
               <CourseCard key={course.id} {...course} />
             ))}
           </div>
