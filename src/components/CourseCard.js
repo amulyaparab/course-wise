@@ -56,9 +56,9 @@ const CourseCard = ({
           className={`fa-solid fa-heart heart ${isCourseLiked && "red-heart"}`}
           onClick={(event) => {
             event.stopPropagation();
-            // isCourseLiked
-            // ? dispatch(dislikeCourse(name)) :
-            dispatch(likeCourse(name));
+            !isCourseLiked
+              ? dispatch(likeCourse(name))
+              : dispatch(dislikeCourse(name));
           }}
         ></i>
         {isUserEnrolled && (

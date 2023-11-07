@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, current } from "@reduxjs/toolkit";
 import fetchCourseData from "../../database/courseData";
 export const fetchUser = createAsyncThunk("user/fetchUser", async () => {
   const { user } = await fetchCourseData("https://example.com/api/courses");
@@ -24,12 +24,15 @@ const userSlice = createSlice({
     },
 
     likeCourse: (state, action) => {
-      state.user?.likedCourses.push(action.payload);
+      const isCourseAlreadyLiked = state.user.likedCourses.find(
+        (course) => course.name === action.payload
+      );
+      !isCourseAlreadyLiked && state.user?.likedCourses.push(action.payload);
     },
 
     dislikeCourse: (state, action) => {
-      return state?.user?.likedCourses?.filter(
-        (course) => course?.name !== action.payload
+      state.user.likedCourses = state.user.likedCourses.filter(
+        (item) => item !== action.payload
       );
     },
   },
@@ -52,8 +55,8 @@ const userSlice = createSlice({
 
 export const {
   enrollToCourse,
+  dislikeCourse,
   markCourseAsComplete,
   likeCourse,
-  dislikeCourse,
 } = userSlice.actions;
 export default userSlice.reducer;

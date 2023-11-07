@@ -538,3 +538,9 @@
   right: 10px;
   top: 10px;
 }
+
+@media screen and (max-width: 600px) {
+  .user-profile {
+    width: 230px;
+  }
+}
