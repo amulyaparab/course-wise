@@ -1,8 +1,13 @@
-import { createAsyncThunk, createSlice, current } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import fetchCourseData from "../../database/courseData";
+
 export const fetchUser = createAsyncThunk("user/fetchUser", async () => {
-  const { user } = await fetchCourseData("https://example.com/api/courses");
-  return user;
+  try {
+    const { user } = await fetchCourseData("https://example.com/api/courses");
+    return user;
+  } catch (err) {
+    console.error(err);
+  }
 });
 
 const userSlice = createSlice({

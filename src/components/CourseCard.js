@@ -42,6 +42,9 @@ const CourseCard = ({
     navigate(`/courses/${id}`);
   };
 
+  const afterCourseCompletion = (condition1, condition2) =>
+    isCourseCompleted ? condition1 : condition2;
+
   return (
     <div
       className="single-course"
@@ -71,7 +74,7 @@ const CourseCard = ({
         <span>{duration}</span>
       </div>
       {onDashboard && (
-        <div className={isCourseCompleted ? "complete" : "progress-bar"}>
+        <div className={afterCourseCompletion("complete", "progress-bar")}>
           <div className="icon"></div>
         </div>
       )}
@@ -85,12 +88,13 @@ const CourseCard = ({
               <strong>Due date:</strong> {duration} weeks from now
             </em>
             <button
-              className={
-                isCourseCompleted ? "completed-btn" : "mark-as-complete-btn"
-              }
+              className={afterCourseCompletion(
+                "completed-btn",
+                "mark-as-complete-btn"
+              )}
               onClick={() => dispatch(markCourseAsComplete(name))}
             >
-              {isCourseCompleted ? "Completed!" : "Mark As Complete"}
+              {afterCourseCompletion("Completed!", "Mark As Complete")}
             </button>
           </>
         )}

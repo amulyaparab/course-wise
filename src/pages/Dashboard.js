@@ -6,7 +6,7 @@ export const Dashboard = () => {
   const courses = useSelector((state) => state.courses.courses);
 
   const usersCourses = courses.filter((course) =>
-    user.enrolledCourses?.includes(course.name)
+    user?.enrolledCourses?.includes(course.name)
   );
 
   return (

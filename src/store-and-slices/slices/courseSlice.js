@@ -5,6 +5,7 @@ export const fetchData = createAsyncThunk("courses/fetchCourses", async () => {
   const { courseData } = await fetchCourseData(
     "https://example.com/api/courses"
   );
+
   return courseData;
 });
 

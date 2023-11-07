@@ -13,7 +13,6 @@ const Syllabus = ({ currentCourse }) => {
           }`}
         ></i>
       </div>
-
       {showSyllabus &&
         currentCourse?.syllabus?.map(({ week, topic, content }) => (
           <div key={week} className="syllabus-details">

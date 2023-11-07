@@ -1,3 +1,4 @@
+export { ErrorPage } from "./Error";
 export { Error } from "../components/app-components/Error";
 export { Loader } from "../components/app-components/Loader";
 export { Navbar } from "../components/app-components/Navbar";

@@ -6,6 +6,7 @@ import {
   CourseListing,
   Dashboard,
   Error,
+  ErrorPage,
   Loader,
   Navbar,
   Route,
@@ -42,6 +43,7 @@ function App() {
             <Route path="/user" element={<UserProfile />} />
             <Route path="/courses" element={<CourseListing />} />
             <Route path="/courses/:courseId" element={<CourseDetails />} />
+            <Route path="*" element={<ErrorPage />} />
           </Routes>
         )}
       </div>
