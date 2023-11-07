@@ -1,14 +1,16 @@
 import CourseCard from "../components/CourseCard";
 import { useDispatch, useSelector } from "react-redux";
-import { searchCourses } from "../store/slices/courseSlice";
+import { searchCourses } from "../store-and-slices/slices/courseSlice";
 import { useDebounce } from "../hooks/useDebounce";
 
 export const CourseListing = () => {
   const dispatch = useDispatch();
   const { filteredCourses } = useSelector((state) => state.courses);
+
   const searchforCourses = (event) =>
     dispatch(searchCourses(event.target.value));
   const debouncedSearch = useDebounce(searchforCourses, 300);
+
   return (
     <>
       <div className="course-nav">

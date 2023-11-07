@@ -4,7 +4,8 @@ import {
   enrollToCourse,
   markCourseAsComplete,
   likeCourse,
-} from "../store/slices/userSlice";
+  dislikeCourse,
+} from "../store-and-slices/slices/userSlice";
 import Syllabus from "../components/course-details/Syllabus";
 import Students from "../components/course-details/Students";
 
@@ -34,6 +35,7 @@ export const CourseDetails = () => {
   const isCourseLiked = courses
     .filter((course) => user?.likedCourses?.includes(course.name))
     .find((course) => course.name.includes(currentCourse?.name));
+
   return (
     <>
       <h1 className="heading">{currentCourse?.name}</h1>
@@ -51,7 +53,9 @@ export const CourseDetails = () => {
               }`}
               onClick={(event) => {
                 event.stopPropagation();
-                dispatch(likeCourse(currentCourse?.name));
+                isCourseLiked
+                  ? dispatch(dislikeCourse(currentCourse?.name))
+                  : dispatch(likeCourse(currentCourse?.name));
               }}
             ></i>
             <p className="instuctor">Instructor: {currentCourse?.instructor}</p>

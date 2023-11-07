@@ -4,7 +4,7 @@ import {
   markCourseAsComplete,
   likeCourse,
   dislikeCourse,
-} from "../store/slices/userSlice";
+} from "../store-and-slices/slices/userSlice";
 
 const CourseCard = ({
   id,
