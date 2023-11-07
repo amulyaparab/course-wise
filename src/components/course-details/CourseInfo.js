@@ -28,6 +28,15 @@ const CourseInfo = ({ courses, currentCourse }) => {
     .filter((course) => user?.likedCourses?.includes(course.name))
     .find((course) => course.name.includes(currentCourse?.name));
 
+  const enrollOrUnenroll = () => {
+    if (isUserEnrolled) {
+      dispatch(unEnrollFromCourse(currentCourse?.name));
+      dispatch(markCourseAsIncomplete(currentCourse?.name));
+    } else {
+      dispatch(enrollToCourse(currentCourse?.name));
+    }
+  };
+
   return (
     <div>
       <i
@@ -69,11 +78,7 @@ const CourseInfo = ({ courses, currentCourse }) => {
       {(canCourseBeEnrolledIn || isUserEnrolled) && (
         <button
           className={`${isUserEnrolled && "enrolled-button"}`}
-          onClick={() =>
-            isUserEnrolled
-              ? dispatch(unEnrollFromCourse(currentCourse?.name))
-              : dispatch(enrollToCourse(currentCourse?.name))
-          }
+          onClick={enrollOrUnenroll}
         >
           {isUserEnrolled ? "Already Enrolled" : "Enroll Now"}
         </button>
