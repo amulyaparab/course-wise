@@ -86,7 +86,7 @@ const CourseCard = ({
         {onDashboard && (
           <>
             <em>
-              <strong>Due date:</strong> {duration} weeks from now
+              <strong>Due date:</strong> {duration} from now
             </em>
             <button
               className={afterCourseCompletion(
