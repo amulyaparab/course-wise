@@ -1,9 +1,7 @@
 import "./App.css";
-import { useEffect } from "react";
+import { Suspense, lazy, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  CourseDetails,
-  CourseListing,
   Dashboard,
   Error,
   ErrorPage,
@@ -11,12 +9,15 @@ import {
   Navbar,
   Route,
   Routes,
-  UserProfile,
   fetchData,
   fetchUser,
 } from "./pages";
 
 function App() {
+  const UserProfile = lazy(() => import("./pages/UserProfile"));
+  const CourseListing = lazy(() => import("./pages/CourseListing"));
+  const CourseDetails = lazy(() => import("./pages/CourseDetails"));
+
   const dispatch = useDispatch();
   const userStatus = useSelector((state) => state.user.status);
   const courseStatus = useSelector((state) => state.courses.status);
@@ -38,13 +39,15 @@ function App() {
         ) : hasError ? (
           <Error />
         ) : (
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/user" element={<UserProfile />} />
-            <Route path="/courses" element={<CourseListing />} />
-            <Route path="/courses/:courseId" element={<CourseDetails />} />
-            <Route path="*" element={<ErrorPage />} />
-          </Routes>
+          <Suspense fallback={<Loader />}>
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/user" element={<UserProfile />} />
+              <Route path="/courses" element={<CourseListing />} />
+              <Route path="/courses/:courseId" element={<CourseDetails />} />
+              <Route path="*" element={<ErrorPage />} />
+            </Routes>
+          </Suspense>
         )}
       </div>
     </div>

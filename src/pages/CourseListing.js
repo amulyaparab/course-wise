@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { searchCourses } from "../store-and-slices/slices/courseSlice";
 import { useDebounce } from "../hooks/useDebounce";
 
-export const CourseListing = () => {
+const CourseListing = () => {
   const dispatch = useDispatch();
   const { filteredCourses } = useSelector((state) => state.courses);
 
@@ -37,3 +37,5 @@ export const CourseListing = () => {
     </>
   );
 };
+
+export default CourseListing;

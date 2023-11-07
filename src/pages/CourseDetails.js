@@ -4,7 +4,7 @@ import Syllabus from "../components/course-details/Syllabus";
 import Students from "../components/course-details/Students";
 import CourseInfo from "../components/course-details/CourseInfo";
 
-export const CourseDetails = () => {
+const CourseDetails = () => {
   const { courseId } = useParams();
   const courses = useSelector((state) => state.courses.courses);
 
@@ -28,3 +28,5 @@ export const CourseDetails = () => {
     </>
   );
 };
+
+export default CourseDetails;
