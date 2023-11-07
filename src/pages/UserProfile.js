@@ -1,8 +1,7 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-const UserProfile = () => {
+export const UserProfile = () => {
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.user);
 
@@ -23,5 +22,3 @@ const UserProfile = () => {
     </div>
   );
 };
-
-export default UserProfile;

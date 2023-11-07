@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import CourseCard from "../components/CourseCard";
 
-const Dashboard = () => {
+export const Dashboard = () => {
   const user = useSelector((state) => state.user.user);
   const courses = useSelector((state) => state.courses.courses);
   const usersCourses = courses.filter((course) =>
@@ -22,5 +22,3 @@ const Dashboard = () => {
     </>
   );
 };
-
-export default Dashboard;

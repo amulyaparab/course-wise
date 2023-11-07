@@ -4,7 +4,7 @@ import { enrollToCourse } from "../store/slices/userSlice";
 import Syllabus from "../components/course-details/Syllabus";
 import Students from "../components/course-details/Students";
 
-const CourseDetails = () => {
+export const CourseDetails = () => {
   const { courseId } = useParams();
   const dispatch = useDispatch();
 
@@ -34,6 +34,7 @@ const CourseDetails = () => {
 
         <div className="course-details">
           <div>
+            <i className="fa-solid fa-heart heart bigger"></i>
             <p className="instuctor">Instructor: {currentCourse?.instructor}</p>
             <p>Description: {currentCourse?.description}</p>
             <p>
@@ -72,11 +73,10 @@ const CourseDetails = () => {
               </button>
             )}
           </div>
+
           <Syllabus currentCourse={currentCourse} />
         </div>
       </div>
     </>
   );
 };
-
-export default CourseDetails;

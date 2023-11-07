@@ -1,20 +1,39 @@
+:root {
+  --white: #ffffff;
+  --black: #000000;
+  --primary-background: #151518;
+  --nav-background: #282c34;
+  --medium-grey: #666666;
+  --dark-grey: #333333;
+  --progress-bar-green: rgb(85, 207, 85);
+  --enrolled-tag-green: rgb(83, 241, 143);
+  --dark-yellow: rgb(241, 199, 83);
+  --light-yellow: rgb(255, 255, 148);
+  --closed-tag-red: rgb(255, 91, 91);
+  --orange: rgb(255, 171, 102);
+  --single-course-background: #ebeff7;
+  --very-light-blue: #c7daff;
+  --general-text-blue: #9ab4e7;
+  --single-course-hover: #c9dbfd;
+}
+
 .App {
   text-align: center;
-  background-color: #151518;
-  color: #ffffff;
+  background-color: var(--primary-background);
+  color: var(--white);
   min-height: 100vh;
 }
 
 .navbar {
-  background-color: #282c34;
-  color: white;
+  background-color: var(--nav-background);
+  color: var(--white);
   padding: 5px;
   font-size: 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 2rem;
-  box-shadow: 0px -2px 5px 0.5px white;
+  box-shadow: 0px -2px 5px 0.5px var(--white);
 }
 
 .navbar h1 {
@@ -33,7 +52,7 @@
 
 .navbar li a {
   text-decoration: none;
-  color: white;
+  color: var(--white);
   font-size: 17px;
 }
 
@@ -54,7 +73,7 @@
   outline: none;
   border: none;
   border-radius: 3px;
-  color: #151518;
+  color: var(--primary-background);
   font-weight: bold;
   width: 350px;
 }
@@ -62,11 +81,11 @@
 .course-nav input::placeholder {
   font-size: small;
   font-weight: normal;
-  color: #666666;
+  color: var(--medium-grey);
 }
 
 .course-nav .search-icon {
-  color: #666666;
+  color: var(--medium-grey);
   position: absolute;
   top: 7px;
   right: 10px;
@@ -85,7 +104,7 @@
   align-items: flex-start;
   gap: 2rem;
   justify-content: flex-start;
-  color: #000000;
+  color: var(--black);
   width: 90%;
   margin: auto;
 }
@@ -96,11 +115,11 @@
   cursor: pointer;
   border-radius: 7px;
   text-align: left;
-  background-color: #ebeff7;
+  background-color: var(--single-course-background);
 }
 
 .single-course:hover {
-  background-color: #c9dbfd;
+  background-color: var(--single-course-hover);
 }
 
 .single-course .course-thumbnail img {
@@ -114,7 +133,7 @@
 .progress-bar,
 .complete {
   height: 5px;
-  background-color: rgb(85, 207, 85);
+  background-color: var(--progress-bar-green);
   width: 50%;
   margin-top: -7.9px;
   margin-bottom: 10px;
@@ -124,7 +143,7 @@
 .progress-bar .icon {
   height: 15px;
   width: 15px;
-  background-color: rgb(85, 207, 85);
+  background-color: var(--progress-bar-green);
   border-radius: 50%;
   position: absolute;
   left: 148px;
@@ -152,7 +171,7 @@
 }
 
 .single-course small {
-  background-color: #ffffff;
+  background-color: var(--white);
   padding: 0.1rem 0.5rem;
   border-radius: 5px;
   font-size: 12px;
@@ -162,10 +181,10 @@
   position: absolute;
   bottom: 15px;
   right: 10px;
-  color: white;
+  color: var(--white);
   font-weight: bold;
   font-size: small;
-  background-color: #282c34;
+  background-color: var(--nav-background);
   padding: 0.1rem 1rem;
   border-radius: 5px;
 }
@@ -180,11 +199,11 @@
 }
 
 .enroll-now-tag {
-  background-color: rgb(241, 199, 83);
+  background-color: var(--dark-yellow);
 }
 
 .enrolled-tag {
-  background-color: rgb(83, 241, 143);
+  background-color: var(--enrolled-tag-green);
 }
 
 .course-info {
@@ -203,15 +222,15 @@
   margin-bottom: 1rem;
 }
 .course-info .course-image {
-  /* height: 550px; */
   margin-top: 0.2rem;
 }
 .course-details {
-  background-color: #282c34;
+  background-color: var(--nav-background);
   padding: 2rem;
   border-radius: 10px;
   height: max-content;
   box-sizing: border-box;
+  position: relative;
 }
 
 .course-details li {
@@ -230,22 +249,22 @@
 }
 
 .course-details button:hover {
-  background-color: rgb(255, 171, 102);
+  background-color: var(--orange);
 }
 
 .course-details .enrolled-button {
-  background-color: rgb(83, 241, 143);
-  color: #333333;
+  background-color: var(--enrolled-tag-green);
+  color: var(--dark-grey);
   cursor: not-allowed;
 }
 
 .course-details .enrolled-button:hover {
-  background-color: rgb(83, 241, 143);
+  background-color: var(--enrolled-tag-green);
 }
 
 .instuctor {
   font-size: 20px;
-  color: #9ab4e7;
+  color: var(--general-text-blue);
 }
 
 .open,
@@ -253,8 +272,8 @@
 .progress {
   padding: 0.1rem 0.5rem;
   border-radius: 5px;
-  color: #000000;
-  opacity: 0.8;
+  color: var(--black);
+  opacity: 0.9;
   font-size: small;
   font-weight: 500;
 }
@@ -264,17 +283,17 @@
 }
 
 .closed {
-  background-color: rgb(255, 91, 91);
+  background-color: var(--closed-tag-red);
 }
 
 .progress {
-  background-color: rgb(255, 255, 148);
+  background-color: var(--light-yellow);
 }
 
 .syllabus {
-  background-color: #9ab4e7;
+  background-color: var(--general-text-blue);
   width: max-content;
-  color: #000000;
+  color: var(--black);
   border-radius: 10px;
   text-align: left;
   padding: 1rem;
@@ -292,7 +311,7 @@
 }
 
 .syllabus-headline i {
-  color: #000000;
+  color: var(--black);
   font-weight: bold;
   font-size: 22px;
 }
@@ -313,9 +332,8 @@
 }
 
 .students {
-  background-color: #282c34;
+  background-color: var(--nav-background);
   border-radius: 10px;
-
   padding: 1rem 2rem;
   text-align: left;
   height: max-content;
@@ -323,12 +341,15 @@
   margin: auto;
   box-sizing: border-box;
 }
+
 .students p {
   margin: 7px;
 }
+
 .students h3 {
   margin: 7px;
 }
+
 .students .student {
   display: flex;
   align-items: center;
@@ -337,7 +358,7 @@
 }
 
 .students h3 {
-  color: #9ab4e7;
+  color: var(--general-text-blue);
 }
 
 .course-extra-info {
@@ -358,12 +379,12 @@
 }
 
 .blue-text {
-  color: #9ab4e7;
+  color: var(--general-text-blue);
   margin-top: 4rem;
 }
 
 .user-profile {
-  background-color: #282c34;
+  background-color: var(--nav-background);
   width: 400px;
   height: max-content;
   padding: 2rem;
@@ -384,22 +405,24 @@
 }
 
 .user-profile p {
-  color: #c7daff;
+  color: var(--very-light-blue);
   margin: 10px;
 }
+
 .user-profile .amount-of-courses {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1rem;
 }
+
 .user-profile .courses-count {
-  background-color: #c7daff;
+  background-color: var(--very-light-blue);
   width: max-content;
   padding: 0.7rem 1.5rem;
   border-radius: 10px;
   font-weight: bold;
-  color: #000000;
+  color: var(--black);
   margin-top: 1.5rem;
   margin-bottom: 1rem;
   font-size: 17px;
@@ -448,7 +471,7 @@
 }
 
 .users-courses .single-course:hover {
-  background-color: #ebeff7;
+  background-color: var(--single-course-background);
 }
 
 .mark-as-complete-btn,
@@ -464,14 +487,36 @@
 }
 
 .mark-as-complete-btn {
-  background-color: rgb(241, 199, 83);
+  background-color: var(--dark-yellow);
 }
 
 .completed-btn {
-  background-color: rgb(85, 207, 85);
+  background-color: var(--progress-bar-green);
   cursor: not-allowed;
 }
 
 .heading {
   padding: 1rem 0;
+}
+
+.heart {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  font-size: 20px;
+  color: var(--general-text-blue);
+  background-color: var(--nav-background);
+  padding: 0.6rem;
+  border-radius: 0 6px 0 12px;
+  cursor: pointer;
+}
+
+.heart:hover {
+  color: var(--closed-tag-red);
+}
+
+.bigger {
+  font-size: 25px;
+  right: 10px;
+  top: 10px;
 }

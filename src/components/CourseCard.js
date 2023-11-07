@@ -44,6 +44,7 @@ const CourseCard = ({
         className="course-thumbnail"
         onClick={() => onDashboard && navigateToDetails(id)}
       >
+        <i className="fa-solid fa-heart heart"></i>
         {isUserEnrolled && (
           <div className="enrolled-tag enrolled">Enrolled</div>
         )}

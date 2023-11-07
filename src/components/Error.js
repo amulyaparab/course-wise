@@ -1,8 +1,6 @@
 import { useSelector } from "react-redux";
 
-const Error = () => {
+export const Error = () => {
   const error = useSelector((state) => state.courses.error);
   return <div className="blue-text">Error: {error}</div>;
 };
-
-export default Error;

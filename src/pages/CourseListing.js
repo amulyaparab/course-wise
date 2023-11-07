@@ -1,9 +1,8 @@
-import React from "react";
 import CourseCard from "../components/CourseCard";
 import { useDispatch, useSelector } from "react-redux";
 import { searchCourses } from "../store/slices/courseSlice";
 
-const CourseListing = () => {
+export const CourseListing = () => {
   const dispatch = useDispatch();
   const { filteredCourses } = useSelector((state) => state.courses);
 
@@ -33,5 +32,3 @@ const CourseListing = () => {
     </>
   );
 };
-
-export default CourseListing;
