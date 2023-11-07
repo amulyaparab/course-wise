@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import CourseCard from "../components/CourseCard";
+import CourseCard from "../components/course-card/CourseCard";
 import { useNavigate } from "react-router-dom";
 
 export const Dashboard = () => {

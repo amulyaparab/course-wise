@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Syllabus = ({ syllabus = [] }) => {
+export const Syllabus = ({ syllabus = [] }) => {
   const [showSyllabus, setShowSyllabus] = useState(false);
 
   return (
@@ -29,5 +29,3 @@ const Syllabus = ({ syllabus = [] }) => {
     </div>
   );
 };
-
-export default Syllabus;

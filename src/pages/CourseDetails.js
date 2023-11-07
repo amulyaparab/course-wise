@@ -1,8 +1,6 @@
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import Syllabus from "../components/course-details/Syllabus";
-import Students from "../components/course-details/Students";
-import CourseInfo from "../components/course-details/CourseInfo";
+import { CourseInfo, Students, Syllabus } from "../components/course-details";
 
 const CourseDetails = () => {
   const { courseId } = useParams();
@@ -12,6 +10,7 @@ const CourseDetails = () => {
     courses.find((course) => course?.id === Number(courseId)) || {};
 
   const { name, thumbnail, students, syllabus } = currentCourse;
+
   return (
     <>
       <h1 className="heading">{name}</h1>

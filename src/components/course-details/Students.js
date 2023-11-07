@@ -1,4 +1,4 @@
-const Students = ({ students = [] }) => {
+export const Students = ({ students = [] }) => {
   return (
     <div className="students">
       <h3>Students</h3>
@@ -14,5 +14,3 @@ const Students = ({ students = [] }) => {
     </div>
   );
 };
-
-export default Students;

@@ -8,7 +8,7 @@ import {
   unEnrollFromCourse,
 } from "../../store-and-slices/slices/userSlice";
 
-const CourseInfo = ({ courses = [], currentCourse = {} }) => {
+export const CourseInfo = ({ courses = [], currentCourse = {} }) => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.user) || {};
 
@@ -111,5 +111,3 @@ const CourseInfo = ({ courses = [], currentCourse = {} }) => {
     </div>
   );
 };
-
-export default CourseInfo;

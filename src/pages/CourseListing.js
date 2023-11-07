@@ -1,4 +1,4 @@
-import CourseCard from "../components/CourseCard";
+import CourseCard from "../components/course-card/CourseCard";
 import { useDispatch, useSelector } from "react-redux";
 import { searchCourses } from "../store-and-slices/slices/courseSlice";
 import { useDebounce } from "../hooks/useDebounce";
