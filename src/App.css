@@ -279,7 +279,7 @@
 }
 
 .open {
-  background-color: lightgreen;
+  background-color: var(--enrolled-tag-green);
 }
 
 .closed {
@@ -495,6 +495,21 @@
   cursor: not-allowed;
 }
 
+.course-details .mark-as-complete-btn {
+  margin-left: 1rem;
+}
+
+.course-details .completed-btn {
+  background-color: var(--progress-bar-green);
+  cursor: not-allowed;
+  margin-left: 1rem;
+  width: max-content;
+}
+
+.course-details .completed-btn:hover {
+  background-color: var(--progress-bar-green);
+}
+
 .heading {
   padding: 1rem 0;
 }
@@ -509,6 +524,9 @@
   padding: 0.6rem;
   border-radius: 0 6px 0 12px;
   cursor: pointer;
+}
+.red-heart {
+  color: var(--closed-tag-red);
 }
 
 .heart:hover {

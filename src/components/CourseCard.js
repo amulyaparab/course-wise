@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { markCourseAsComplete } from "../store/slices/userSlice";
+import { markCourseAsComplete, likeCourse } from "../store/slices/userSlice";
 
 const CourseCard = ({
   id,
@@ -19,11 +19,15 @@ const CourseCard = ({
   const courses = useSelector((state) => state.courses.courses);
 
   const isUserEnrolled = courses
-    .filter((course) => user.enrolledCourses?.includes(course.name))
+    .filter((course) => user?.enrolledCourses?.includes(course.name))
     .find((course) => course.name.includes(name));
 
   const isCourseCompleted = courses
-    .filter((course) => user.completedCourses?.includes(course.name))
+    .filter((course) => user?.completedCourses?.includes(course.name))
+    .find((course) => course.name.includes(name));
+
+  const isCourseLiked = courses
+    .filter((course) => user?.likedCourses?.includes(course.name))
     .find((course) => course.name.includes(name));
 
   const canCourseBeEnrolledIn =
@@ -44,7 +48,13 @@ const CourseCard = ({
         className="course-thumbnail"
         onClick={() => onDashboard && navigateToDetails(id)}
       >
-        <i className="fa-solid fa-heart heart"></i>
+        <i
+          className={`fa-solid fa-heart heart ${isCourseLiked && "red-heart"}`}
+          onClick={(event) => {
+            event.stopPropagation();
+            dispatch(likeCourse(name));
+          }}
+        ></i>
         {isUserEnrolled && (
           <div className="enrolled-tag enrolled">Enrolled</div>
         )}

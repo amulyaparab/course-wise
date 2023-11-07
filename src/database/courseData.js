@@ -18,6 +18,7 @@ const fetchCourseData = (url) => {
               "Healthy Cooking Workshop",
             ],
             completedCourses: [],
+            likedCourses: [],
           },
 
           courseData: [

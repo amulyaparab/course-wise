@@ -1,6 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { enrollToCourse } from "../store/slices/userSlice";
+import {
+  enrollToCourse,
+  markCourseAsComplete,
+  likeCourse,
+} from "../store/slices/userSlice";
 import Syllabus from "../components/course-details/Syllabus";
 import Students from "../components/course-details/Students";
 
@@ -16,13 +20,20 @@ export const CourseDetails = () => {
   );
 
   const isUserEnrolled = courses
-    .filter((course) => user.enrolledCourses?.includes(course.name))
+    .filter((course) => user?.enrolledCourses?.includes(course.name))
     .find((course) => course.name.includes(currentCourse?.name));
 
   const canCourseBeEnrolledIn =
     (currentCourse?.enrollmentStatus === "Open" && !isUserEnrolled) ||
     (currentCourse?.enrollmentStatus === "In Progress" && !isUserEnrolled);
 
+  const isCourseCompleted = courses
+    .filter((course) => user?.completedCourses?.includes(course.name))
+    .find((course) => course.name.includes(currentCourse?.name));
+
+  const isCourseLiked = courses
+    .filter((course) => user?.likedCourses?.includes(course.name))
+    .find((course) => course.name.includes(currentCourse?.name));
   return (
     <>
       <h1 className="heading">{currentCourse?.name}</h1>
@@ -34,7 +45,15 @@ export const CourseDetails = () => {
 
         <div className="course-details">
           <div>
-            <i className="fa-solid fa-heart heart bigger"></i>
+            <i
+              className={`fa-solid fa-heart heart bigger ${
+                isCourseLiked && "red-heart"
+              }`}
+              onClick={(event) => {
+                event.stopPropagation();
+                dispatch(likeCourse(currentCourse?.name));
+              }}
+            ></i>
             <p className="instuctor">Instructor: {currentCourse?.instructor}</p>
             <p>Description: {currentCourse?.description}</p>
             <p>
@@ -70,6 +89,18 @@ export const CourseDetails = () => {
             {isUserEnrolled && (
               <button disabled className="enrolled-button">
                 Already Enrolled
+              </button>
+            )}
+            {isUserEnrolled && (
+              <button
+                className={
+                  isCourseCompleted ? "completed-btn" : "mark-as-complete-btn"
+                }
+                onClick={() =>
+                  dispatch(markCourseAsComplete(currentCourse?.name))
+                }
+              >
+                {isCourseCompleted ? "Completed!" : "Mark As Complete"}
               </button>
             )}
           </div>

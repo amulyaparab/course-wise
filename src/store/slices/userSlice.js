@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import fetchCourseData from "../../database/courseData";
-
+import { produce } from "immer";
 export const fetchUser = createAsyncThunk("user/fetchUser", async () => {
   const { user } = await fetchCourseData("https://example.com/api/courses");
   return user;
@@ -23,6 +23,16 @@ const userSlice = createSlice({
     markCourseAsComplete: (state, action) => {
       state.user.completedCourses.push(action.payload);
     },
+
+    likeCourse: (state, action) => {
+      state.user?.likedCourses.push(action.payload);
+    },
+
+    dislikeCourse: (state, action) => {
+      return state?.user?.likedCourses?.filter(
+        (course) => course?.name !== action.payload
+      );
+    },
   },
 
   extraReducers: (builder) => {
@@ -41,5 +51,10 @@ const userSlice = createSlice({
   },
 });
 
-export const { enrollToCourse, markCourseAsComplete } = userSlice.actions;
+export const {
+  enrollToCourse,
+  markCourseAsComplete,
+  likeCourse,
+  dislikeCourse,
+} = userSlice.actions;
 export default userSlice.reducer;
